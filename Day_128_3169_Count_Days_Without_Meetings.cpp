@@ -10,11 +10,11 @@ public:
     ranges::sort(meetings);
 
     for (const vector<int>& meeting : meetings) {
-      const int start = meeting[0];
-      const int end = meeting[1];
-      if (start > prevEnd)
-        freeDays += start - prevEnd - 1;
-      prevEnd = max(prevEnd, end);
+        const int start = meeting[0];
+        const int end = meeting[1];
+        if (start > prevEnd)
+            freeDays += start - prevEnd - 1;
+        prevEnd = max(prevEnd, end);
     }
 
     return freeDays + max(0, days - prevEnd);
