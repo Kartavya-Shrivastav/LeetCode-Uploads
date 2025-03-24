@@ -3,7 +3,7 @@ using namespace std;
 
 
 class Solution {
- public:
+  public:
   vector<string> findAllRecipes(vector<string>& recipes,
                                 vector<vector<string>>& ingredients,
                                 vector<string>& supplies) {
@@ -16,7 +16,7 @@ class Solution {
     // Build the graph.
     for (int i = 0; i < recipes.size(); ++i)
       for (const string& ingredient : ingredients[i])
-        if (!suppliesSet.contains(ingredient)) {
+        if (suppliesSet.find(ingredient) == suppliesSet.end()) {
           graph[ingredient].push_back(recipes[i]);
           ++inDegrees[recipes[i]];
         }

@@ -18,7 +18,6 @@ public:
 }
 
 private:
-  // Similar to 1786. Number of Restricted Paths From First to Last Node
     int dijkstra(const vector<vector<pair<int, int>>>& graph, int src, int dst) {
         constexpr int kMod = 1'000'000'007;
         vector<long> ways(graph.size());
