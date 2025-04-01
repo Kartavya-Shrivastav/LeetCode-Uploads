@@ -15,6 +15,6 @@ public:
             dp[i] = max(points + nextPoints, dp[i + 1]);
         }
 
-        return dp[0];
+        return dp[0] ;
     }
 };
