@@ -25,11 +25,8 @@ public:
         vector<int> digitCount(10);
         for (const char c : palindrome)
             ++digitCount[c - '0'];
-        // Leading zeros are not allowed, so the first digit is special.
         const int firstDigitChoices = n - digitCount[0];
         long permutations = firstDigitChoices * factorial(n - 1);
-        // For each repeated digit, divide by the factorial of the frequency since
-        // permutations that swap identical digits don't create a new number.
         for (const int freq : digitCount)
             if (freq > 1)
             permutations /= factorial(freq);

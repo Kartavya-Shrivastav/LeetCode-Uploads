@@ -6,7 +6,7 @@ class Solution {
         long ans = 1;
         while(expo>0)
         {
-            if(expo%2==0)            
+            if(expo%2==0)
             {
                 base = (base*base)%mod;
                 expo = expo/2;
