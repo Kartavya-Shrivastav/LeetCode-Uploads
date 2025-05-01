@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -6,8 +8,8 @@ public:
     int l = 0;
     int r = min(tasks.size(), workers.size());
 
-    ranges::sort(tasks);
-    ranges::sort(workers);
+    sort(tasks);
+    sort(workers);
 
     // Returns true if we can finish k tasks.
     auto canComplete = [&](int k, int pillsLeft) {
