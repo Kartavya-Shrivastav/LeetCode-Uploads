@@ -1,7 +1,10 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 using int3 = tuple<int, int, int>; // (time, i, j)
 const static int d[5] = {0, 1, 0, -1, 0};
 class Solution {
-public:  
+public:
     inline static bool isOutside(int i, int j, int n, int m) {
         return i < 0 || i >= n || j < 0 || j >= m;
     }
