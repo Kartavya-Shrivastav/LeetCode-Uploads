@@ -19,7 +19,6 @@ public:
             return dist;
         };
 
-        // Build dp and prev arrays
         for (int i = 1; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
                 if (groups[i] != groups[j] &&
@@ -32,7 +31,6 @@ public:
             }
         }
 
-        // Find the index of the last word in the longest subsequence
         int max_len = 0, last_idx = 0;
         for (int i = 0; i < n; ++i) {
             if (dp[i] > max_len) {
@@ -41,7 +39,6 @@ public:
             }
         }
 
-        // Reconstruct the longest subsequence
         vector<string> result;
         while (last_idx != -1) {
             result.push_back(words[last_idx]);
