@@ -1,11 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     int maxRemoval(vector<int>& nums, vector<vector<int>>& queries) {
         int queryIndex = 0;
-        priority_queue<int> available;                        // available `r`s
-        priority_queue<int, vector<int>, greater<>> running;  // running `r`s
-
-        ranges::sort(queries);
+        priority_queue<int> available;
+        priority_queue<int, vector<int>, greater<>> running;
+        
+        std::sort(queries.begin(), queries.end());
 
         for (int i = 0; i < nums.size(); ++i) {
         while (queryIndex < queries.size() && queries[queryIndex][0] <= i)
