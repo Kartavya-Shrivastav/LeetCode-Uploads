@@ -1,3 +1,8 @@
+#include <iostream>
+using namespace std;
+
+// This code defines a class Solution with a method differenceOfSums that calculates the difference
+// between the sum of all integers from 1 to n that are not divisible by m and those that are divisible by m.
 class Solution {
 public:
     int differenceOfSums(int n, int m) {
