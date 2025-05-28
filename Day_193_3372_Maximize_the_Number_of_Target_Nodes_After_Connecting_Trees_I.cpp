@@ -1,3 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// This code defines a class Solution with a method maxTargetNodes that calculates the maximum number of target nodes
+// that can be reached in two trees after connecting them. It uses depth-first search (DFS) to explore the nodes
+// and counts the reachable nodes based on the number of steps allowed (k). The method builds the graph from the edges
+//
+
 class Solution {
 public:
     vector<int> maxTargetNodes(vector<vector<int>>& edges1, vector<vector<int>>& edges2, int k) {
