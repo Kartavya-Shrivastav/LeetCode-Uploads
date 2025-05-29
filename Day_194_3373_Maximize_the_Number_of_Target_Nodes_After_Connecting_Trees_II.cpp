@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// LeetCode 3373. Maximize the Number of Target Nodes After Connecting Trees II
+// https://leetcode.com/problems/maximize-the-number-of-target-nodes-after-connecting-trees-ii/
+// Difficulty: Hard
+// Tags: Graph, Depth-First Search, Breadth-First Search, Tree, Union Find
+// Note: This solution uses DFS to color the nodes and calculate the maximum target nodes.
+// Time Complexity: O(n + m), where n is the number of nodes in the first tree and m is the number of nodes in the second tree.
+
 class Solution {
 public:
     vector<vector<int>> buildList(const vector<vector<int>>& edges) {
@@ -12,8 +19,7 @@ public:
         return adj;
     }
 
-    void dfsColor(const vector<vector<int>>& adj, int u, int parent,
-                  vector<int>& color, int& evenCnt, int& oddCnt) {
+    void dfsColor(const vector<vector<int>>& adj, int u, int parent, vector<int>& color, int& evenCnt, int& oddCnt) {
         if (color[u] == 0) evenCnt++;
         else oddCnt++;
         for (int v : adj[u]) if (v != parent) {
