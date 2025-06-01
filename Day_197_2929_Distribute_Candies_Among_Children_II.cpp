@@ -1,3 +1,9 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// This code defines a function to calculate the number of ways to distribute candies among children
+// such that no child receives more than a specified limit of candies.
+
 class Solution {
 public:
     long long distributeCandies(int n, int limit) {
