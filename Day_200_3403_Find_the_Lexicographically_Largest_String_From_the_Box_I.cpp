@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+// This code defines a function to find the lexicographically largest substring of a given word
+// that can be formed by removing a specified number of characters (numFriends - 1).
+
 class Solution {
 public:
     string answerString(string word, int numFriends) {
