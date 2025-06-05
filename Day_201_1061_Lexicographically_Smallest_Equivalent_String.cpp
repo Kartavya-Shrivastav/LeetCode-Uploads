@@ -1,3 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
+// This code defines a function to find the lexicographically smallest equivalent string
+// based on two input strings that represent equivalence relations.
+
 class Solution {
 public:
     // DFS to find the smallest lex character in the component
