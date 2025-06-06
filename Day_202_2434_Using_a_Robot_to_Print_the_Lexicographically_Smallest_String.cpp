@@ -1,3 +1,9 @@
+#include<bits/stdc++.h>
+using namespace std;
+// This code defines a function to use a robot to print the lexicographically smallest string
+// by processing characters from a given string and using a stack to manage the order of characters.
+
+
 class Solution {
 public:
     // Helper function to find the lexicographically smallest remaining character
