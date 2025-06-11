@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+// This code is a solution to the problem of finding the length of the last word in a given string.
+// The solution involves reversing the string and counting the characters until a space is encountered.
+
 class Solution {
 public:
     int lengthOfLastWord(string s) {
