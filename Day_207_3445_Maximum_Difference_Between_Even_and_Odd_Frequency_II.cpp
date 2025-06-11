@@ -1,3 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+// This code is a solution to the problem of finding the maximum difference between the frequency of two digits in a string,
+// where the difference is calculated over all substrings of a given minimum length k.
+// The solution uses a prefix sum approach to efficiently calculate the frequency of each digit in the string.
+
 array<vector<int>, 5> freq;
 int n;
 class Solution {
