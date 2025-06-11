@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+// This code is a solution to the problem of generating a spiral matrix of size n x n.
+// The solution uses a direction array to navigate through the matrix and fill it with numbers from 1 to n^2.
+
 class Solution {
 public:
     int floorMod(int x, int y) { return ((x % y) + y) % y; }
