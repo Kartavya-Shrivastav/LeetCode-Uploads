@@ -1,33 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+// This code finds the k-th permutation sequence of numbers from 1 to n
+// It uses a factorial-based approach to determine the correct sequence without generating all permutations
+
 class Solution {
 public:
-    int fact( int n){
-        if( n ==0 || n==1)return 1;
-        int ans =1;
-        while(n>0){
-            ans = ans*n;
+    // Helper function to compute factorial of n
+    int fact(int n) {
+        if (n == 0 || n == 1) return 1;
+        int ans = 1;
+        while (n > 0) {
+            ans = ans * n;
             n--;
         }
         return ans;
     }
+
+    // Main function to get the k-th permutation sequence
     string getPermutation(int n, int k) {
-        //total would be n factorial 
-        // for first ele there would be (n-1)! choices 
-        // similarly for the second ele there would be (n-2)! choices 
-        string ans ="";
-        vector<int>nums;
-        for( int i=0;i<n;i++){
-            nums.push_back(i+1);
+        string ans = "";
+        vector<int> nums;
+        // Initialize the list of numbers from 1 to n
+        for (int i = 0; i < n; i++) {
+            nums.push_back(i + 1);
         }
-        int a=n;
-        k--;
-        for( int i=0;i<a;i++){
-            // i denotes the position
-            // for this pos we have (n-i-1 choices)
-            int choices = fact(n-i-1);
-            int q= (k/choices);
-            ans+=to_string(nums[q]);
-            nums.erase(nums.begin()+(q));
-            k=k%choices;
+        int a = n;
+        k--; // Convert k to zero-based index
+
+        // Build the permutation one position at a time
+        for (int i = 0; i < a; i++) {
+            // Number of permutations for each possible first element
+            int choices = fact(n - i - 1);
+            // Determine which number should be at the current position
+            int q = (k / choices);
+            ans += to_string(nums[q]);
+            // Remove the used number from the list
+            nums.erase(nums.begin() + (q));
+            // Update k for the next position
+            k = k % choices;
         }
         return ans;
     }
