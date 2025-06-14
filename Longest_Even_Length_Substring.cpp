@@ -1,3 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Function to find the longest even-length substring with equal sum of halves
+// Returns the length of the longest even-length substring with equal sum of halves 
 
 int main() {
     int t;
