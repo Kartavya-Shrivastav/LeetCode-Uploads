@@ -1,3 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given an integer num, return the maximum difference you can get by changing exactly one digit in num to any digit from 0 to 9.
+// The maximum difference is defined as the absolute difference between the original number and the modified number.
+
+// Approach: Convert the integer to a string, find the first digit that can be changed to maximize and minimize the number, and calculate the difference.   
+
+
 class Solution {
 public:
     int maxDiff(int num) {
