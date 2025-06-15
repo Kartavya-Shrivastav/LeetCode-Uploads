@@ -1,3 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Add Binary Strings
+// You are given two binary strings s1 and s2. Your task is to return their sum as a binary string.
+// Note: The input strings are non-empty and contain only characters '0' or '1'.
+
 class Solution {
   public:
     string addBinary(string& s1, string& s2) {
