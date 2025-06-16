@@ -1,3 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given an array of integers, find the maximum difference between two elements such that the larger element comes after the smaller one.
+// Approach: Use two pointers to traverse the array from both ends, keeping track of the minimum and maximum values seen so far, and calculate the maximum difference.
+
 class Solution {
 public:
     int maximumDifference(vector<int>& nums) {
