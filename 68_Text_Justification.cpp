@@ -1,3 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given a list of words and a maximum width, format the text such that each line has exactly maxWidth characters.
+// Each line should be fully justified, meaning that words are spaced out evenly, and the last line is left-justified.
+
+// Approach: Use a greedy algorithm to fill each line with as many words as possible without exceeding maxWidth.
+
 class Solution {
 public:
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
