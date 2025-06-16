@@ -7,21 +7,26 @@ using namespace std;
 class Solution {
 public:
     int maximumDifference(vector<int>& nums) {
-        int n=nums.size();
-        int maxD=-1, xMinL=1e9, xMaxR=-1;
-        for(int l=0, r=n-1; l<r; l++){
-            xMinL=min(nums[l], xMinL);
-            while(l<r && nums[l+1]>nums[l]){
+        int n = nums.size();
+        int maxD = -1;           // Stores the maximum difference found
+        int xMinL = 1e9;         // Tracks the minimum value from the left
+        int xMaxR = -1;          // Tracks the maximum value from the right
+        for (int l = 0, r = n - 1; l < r; l++) {
+            xMinL = min(nums[l], xMinL); // Update minimum from the left
+            // Move left pointer forward while the sequence is increasing
+            while (l < r && nums[l + 1] > nums[l]) {
                 l++;
-                maxD=max(maxD, nums[l]-xMinL);
+                maxD = max(maxD, nums[l] - xMinL); // Update max difference
             }
-            xMaxR=max(nums[r], xMaxR);
-            while(l<r && nums[r-1]<nums[r]){
+            xMaxR = max(nums[r], xMaxR); // Update maximum from the right
+            // Move right pointer backward while the sequence is decreasing
+            while (l < r && nums[r - 1] < nums[r]) {
                 r--;
-                maxD=max(maxD, nums[r]-xMaxR);
+                maxD = max(maxD, nums[r] - xMaxR); // Update max difference
             }
-            maxD=max(maxD, xMaxR-xMinL);
-        } 
-        return maxD==0?-1:maxD;
+            maxD = max(maxD, xMaxR - xMinL); // Update max difference with current min and max
+        }
+        // If no valid difference found, return -1
+        return maxD == 0 ? -1 : maxD;
     }
 };
