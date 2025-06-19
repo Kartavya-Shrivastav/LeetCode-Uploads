@@ -17,17 +17,20 @@ using namespace std;
 class Solution {
 public:
     int partitionArray(vector<int>& nums, int k) {
+        // Sort the array to bring close values together
         ranges::sort(nums);
 
-    int ans = 1;
-    int mn = nums[0];
+        int ans = 1; // At least one partition is needed
+        int mn = nums[0]; // Minimum value in the current partition
 
-    for (int i = 1; i < nums.size(); ++i)
-      if (mn + k < nums[i]) {
-        ++ans;
-        mn = nums[i];
-      }
+        // Iterate through the sorted array
+        for (int i = 1; i < nums.size(); ++i)
+            // If the current number exceeds the allowed difference from mn
+            if (mn + k < nums[i]) {
+                ++ans; // Start a new partition
+                mn = nums[i]; // Update mn to the new partition's minimum
+            }
 
-    return ans;
+        return ans; // Return the total number of partitions
     }
 };
