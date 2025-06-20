@@ -21,17 +21,24 @@ public:
         int ans = 0;
         int north = 0, south = 0, east = 0, west = 0;
         
+        // Iterate through each character in the string
         for (int i = 0; i < s.size(); i++) {
             char c = s[i];
+            // Update direction counters
             if (c == 'N') north++;
             else if (c == 'S') south++;
             else if (c == 'E') east++;
             else if (c == 'W') west++;
             
+            // Calculate the current Manhattan distance
             int x = abs(north - south);
             int y = abs(east - west);
             int MD = x + y;
+            // Calculate the possible distance after making up to k changes
+            // Each change can increase the distance by at most 2 (changing a direction to its opposite)
+            // But cannot exceed the number of steps taken so far (i + 1)
             int dis = MD + min(2 * k, i + 1 - MD);
+            // Update the answer with the maximum distance found so far
             ans = max(ans, dis);
         }
         
