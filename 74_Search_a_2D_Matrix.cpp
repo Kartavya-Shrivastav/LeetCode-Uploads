@@ -1,3 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Search a 2D matrix for a target value.
+// Approach: Use binary search to find the target in a row-wise sorted 2D matrix.
+
+// Steps:
+// 1. Perform a binary search on the rows to find the row that may contain the target.
+// 2. Once the row is found, perform a binary search on that row to find the target.
+// 3. Return true if the target is found, otherwise return false.
+
+// Time Complexity: O(log(m) + log(n)), where m is the number of rows and n is the number of columns.
+// Space Complexity: O(1), since we are not using any additional data structures that grow with input size.
+
 class Solution {
 public:
     bool rowSearch(vector<int>& matrix, int target) {
