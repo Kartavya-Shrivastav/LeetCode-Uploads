@@ -16,21 +16,24 @@ class Solution {
 public:
     int minimumDeletions(string word, int k) {
         int ans = INT_MAX;
-    vector<int> count(26);
+        vector<int> count(26); // Count of each lowercase letter
 
-    for (const char c : word)
-      ++count[c - 'a'];
+        // Count frequency of each character in the string
+        for (const char c : word)
+            ++count[c - 'a'];
 
-    for (const int minFreq : count) {
-      int deletions = 0;
-      for (const int freq : count)
-        if (freq < minFreq)  // Delete all the letters with smaller frequency.
-          deletions += freq;
-        else  // Delete letters with exceeding frequency.
-          deletions += max(0, freq - (minFreq + k));
-      ans = min(ans, deletions);
-    }
+        // Try each possible minimum frequency as a target
+        for (const int minFreq : count) {
+            int deletions = 0;
+            for (const int freq : count) {
+                if (freq < minFreq)  // Delete all the letters with smaller frequency
+                    deletions += freq;
+                else  // Delete letters with exceeding frequency
+                    deletions += max(0, freq - (minFreq + k));
+            }
+            ans = min(ans, deletions); // Update answer with the minimum deletions found
+        }
 
-    return ans;
+        return ans;
     }
 };
