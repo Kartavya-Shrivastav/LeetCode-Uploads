@@ -15,22 +15,27 @@ using namespace std;
 
 class Solution {
 public:
+    // Helper function to create a palindromic number in base 10.
+    // If 'odd' is true, creates an odd-length palindrome; otherwise, even-length.
     long long createPalindrome(long long num, bool odd) {
         long long x = num;
-        if (odd) x /= 10;
+        if (odd) x /= 10; // Skip the middle digit for odd-length palindromes
         while (x > 0) {
-            num = num * 10 + x % 10;
+            num = num * 10 + x % 10; // Append the mirrored digit
             x /= 10;
         }
         return num;
     }
 
+    // Checks if a number is a palindrome in the given base.
     bool isPalindrome(long long num, int base) {
         vector<int> digits;
+        // Convert number to the given base and store digits
         while (num > 0) {
             digits.push_back(num % base);
             num /= base;
         }
+        // Check if the digits form a palindrome
         int i = 0, j = digits.size() - 1;
         while (i < j) {
             if (digits[i++] != digits[j--]) return false;
@@ -38,9 +43,12 @@ public:
         return true;
     }
 
+    // Main function to find the sum of the first n k-mirror numbers.
     long long kMirror(int k, int n) {
         long long sum = 0;
+        // Generate palindromic numbers by increasing their length
         for (long long len = 1; n > 0; len *= 10) {
+            // Generate odd-length palindromes
             for (long long i = len; n > 0 && i < len * 10; i++) {
                 long long p = createPalindrome(i, true);
                 if (isPalindrome(p, k)) {
@@ -48,6 +56,7 @@ public:
                     n--;
                 }
             }
+            // Generate even-length palindromes
             for (long long i = len; n > 0 && i < len * 10; i++) {
                 long long p = createPalindrome(i, false);
                 if (isPalindrome(p, k)) {
