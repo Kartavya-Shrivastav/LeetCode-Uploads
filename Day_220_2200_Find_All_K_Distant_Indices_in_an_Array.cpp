@@ -18,23 +18,24 @@ using namespace std;
 class Solution {
 public:
     vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
-        vector<int> idx;
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i] == key) idx.push_back(i);
+        vector<int> idx; // Stores indices where nums[i] == key
+        for(int i = 0; i < nums.size(); i++) {
+            if(nums[i] == key) idx.push_back(i); // Collect all indices of key
         }
 
-        vector<int> res;
+        vector<int> res; // Result vector to store k-distant indices
 
-        for(int i=0; i<nums.size(); i++){
-            for(int j=0; j<idx.size(); j++){
-                // cout << abs(i-j) << " ";
-                if(abs(i-idx[j]) <= k){
+        // For each index in nums, check if it is within k distance from any key index
+        for(int i = 0; i < nums.size(); i++) {
+            for(int j = 0; j < idx.size(); j++) {
+                // If the absolute difference is within k, add to result and break
+                if(abs(i - idx[j]) <= k) {
                     res.push_back(i);
-                    break;
+                    break; // No need to check further key indices for this i
                 }
             }
         }
 
-        return res;
+        return res; // Return all k-distant indices
     }
 };
