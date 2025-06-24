@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Find All K-Distant Indices in an Array
+// Approach: Identify indices in the array that are within k distance from any index containing the key
+
+// Steps:
+// 1. Iterate through the array to find all indices where the value equals the key.
+// 2. For each index in the array, check if it is within k distance from any of the indices found in step 1.
+// 3. If it is, add it to the result list.
+// 4. Return the list of indices that are k-distant from the key indices.
+// 5. Use absolute difference to check the distance condition.
+// 6. Ensure to avoid duplicates in the result list.
+
+// Time Complexity: O(n * m), where n is the size of the array and m is the number of indices with the key.
+// Space Complexity: O(n) for storing the indices of the key.
+
 class Solution {
 public:
     vector<int> findKDistantIndices(vector<int>& nums, int key, int k) {
