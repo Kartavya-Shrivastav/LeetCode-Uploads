@@ -17,37 +17,47 @@ using namespace std;
 
 class Solution {
 public:
+    // Main function to find the k-th smallest product
     long long kthSmallestProduct(vector<int>& nums1, vector<int>& nums2, long long k) {
         long long left = -1e10, right = 1e10;
+        // Binary search for the answer in the product range
         while (left < right) {
             long long mid = left + (right - left) / 2;
-            if (countProducts(nums1, nums2, mid) < k) left = mid + 1;
-            else right = mid;
+            // Count how many products are <= mid
+            if (countProducts(nums1, nums2, mid) < k) 
+                left = mid + 1;
+            else 
+                right = mid;
         }
         return left;
     }
 
+    // Helper function to count number of products <= target
     long long countProducts(vector<int>& nums1, vector<int>& nums2, long long target) {
         long long count = 0;
         for (int num1 : nums1) {
+            // If num1 is zero, all products are zero
             if (num1 == 0) {
                 if (target >= 0) count += nums2.size();
                 continue;
             }
 
             int low = 0, high = nums2.size();
+            // Binary search in nums2 for each num1
             while (low < high) {
                 int mid = (low + high) / 2;
                 long long prod = 1LL * num1 * nums2[mid];
                 if (prod <= target) {
+                    // For positive num1, move right; for negative, move left
                     if (num1 > 0) low = mid + 1;
                     else high = mid;
                 } else {
+                    // For positive num1, move left; for negative, move right
                     if (num1 > 0) high = mid;
                     else low = mid + 1;
                 }
             }
-
+            // Add the count for this num1
             count += (num1 > 0) ? low : (nums2.size() - low);
         }
         return count;
