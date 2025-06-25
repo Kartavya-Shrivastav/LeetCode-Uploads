@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Kth Smallest Product of Two Sorted Arrays
+// Approach: Use binary search to find the k-th smallest product of two sorted arrays.
+
+// Steps:
+// 1. Define a binary search range for the product, from -1e10 to 1e10.
+// 2. For each mid value in the binary search, count how many products are less than or equal to mid.
+// 3. If the count is less than k, move the left boundary up; otherwise, move the right boundary down.      
+// 4. Continue until the left boundary meets the right boundary, which will be the k-th smallest product.       
+// 5. Use a helper function to count the number of products less than or equal to a given target.
+// 6. Handle the case where one of the arrays contains zero, as it can affect the product count.
+
+// Time Complexity: O(n log m), where n is the size of nums1 and m is the size of nums2.
+// Space Complexity: O(1) for the binary search and counting operations.
+
 class Solution {
 public:
     long long kthSmallestProduct(vector<int>& nums1, vector<int>& nums2, long long k) {
