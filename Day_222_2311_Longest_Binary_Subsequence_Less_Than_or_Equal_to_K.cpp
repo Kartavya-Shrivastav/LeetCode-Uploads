@@ -22,22 +22,26 @@ public:
         int zeros = 0, ones = 0;
         long long value = 0, pow = 1;
 
+        // Count the number of '0's in the string
         for (char c : s) {
             if (c == '0') zeros++;
         }
 
+        // Traverse from the end to the start
         for (int i = n - 1; i >= 0; i--) {
             if (s[i] == '1') {
+                // If adding this '1' does not exceed k, include it
                 if (value + pow > k) {
                     continue; // Skip this '1' as it would exceed k
                 }
                 value += pow;
                 ones++;
             }
-            pow <<= 1;
+            pow <<= 1; // Move to the next higher power of 2
             if (pow > k) break; // Further bits would exceed k
         }
 
+        // Return total count of '0's and valid '1's
         return zeros + ones;
     }
 };
