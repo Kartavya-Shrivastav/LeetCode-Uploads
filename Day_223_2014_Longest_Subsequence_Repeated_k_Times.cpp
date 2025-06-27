@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Longest Subsequence Repeated k Times
+// Approach: Use a queue to explore all possible subsequences and check if they can be formed k times in the original string.
+
+// Steps:
+// 1. Count the frequency of each character in the string.
+// 2. Create a valid character set that can be used to form subsequences.
+// 3. Use a queue to explore all possible subsequences starting from an empty string.
+// 4. For each subsequence, check if it can be formed k times in the original string.
+// 5. Keep track of the longest valid subsequence found.
+// 6. Return the longest subsequence that can be formed k times.
+
+// Time Complexity: O(n * 26^m), where n is the length of the string and m is the number of valid characters (at most 26).
+// Space Complexity: O(n), for storing the queue and the longest subsequence.
+
 class Solution {
 public:
     bool isKSubsequence(const string& s, const string& x, int k) {
