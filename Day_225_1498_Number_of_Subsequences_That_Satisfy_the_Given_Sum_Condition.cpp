@@ -20,10 +20,13 @@ using namespace std;
 
 class Solution {
 public:
+    // Function to count the number of subsequences where the sum of the minimum and maximum is <= target
     int numSubseq(vector<int>& nums, int target) {
         int mod = 1e9 + 7, n = nums.size();
+        // Sort the array to use two-pointer technique
         sort(nums.begin(), nums.end());
 
+        // Precompute powers of 2 up to n for subsequence counting
         vector<int> power(n, 1);
         for (int i = 1; i < n; ++i) {
             power[i] = (power[i - 1] * 2) % mod;
@@ -31,14 +34,17 @@ public:
 
         int left = 0, right = n - 1, result = 0;
 
+        // Use two pointers to find valid subsequences
         while (left <= right) {
+            // If the sum of the smallest and largest is within target
             if (nums[left] + nums[right] <= target) {
+                // Add the number of subsequences between left and right
                 result = (result + power[right - left]) % mod;
-                ++left;
+                ++left; // Move left pointer to the right
             } else {
-                --right;
+                --right; // Move right pointer to the left to reduce sum
             }
         }
-        return result;
+        return result; // Return the total count modulo 1e9+7
     }
 };
