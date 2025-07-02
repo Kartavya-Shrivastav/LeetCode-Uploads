@@ -1,3 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Problem: Given a string `word` and an integer `k`, return the number of possible original strings that could have been typed to produce `word` with at most `k` adjacent characters being the same.
+// Approach: The number of possible original strings is determined by the number of groups of adjacent characters in `word`. We can use dynamic programming to count the valid combinations while ensuring that no more than `k` adjacent characters are the same.
+
+// Steps:
+// 1. Count the groups of adjacent characters in `word`.
+// 2. Calculate the total number of combinations of these groups.
+// 3. Use dynamic programming to count the valid combinations while respecting the constraint of `k`.
+// 4. Return the total count of valid combinations modulo 1e9 + 7.
+
+// Time Complexity: O(n * k), where n is the length of the string and k is the maximum number of adjacent characters allowed.
+// Space Complexity: O(k), for the dynamic programming array.
+
 class Solution {
 public:
     const int MOD = 1e9 + 7;
