@@ -21,14 +21,19 @@ using namespace std;
 class Solution {
 public:
     char kthCharacter(int k) {
+        // Initialize the string with the first character 'a'
         std::string sb = "a";
+        // Keep generating the string until its length is at least k
         while (sb.length() < k) {
             int size = sb.length();
+            // For each character in the current string, append the next character in the alphabet
             for (int i = 0; i < size; ++i) {
-                char nextChar = 'a' + ((sb[i] - 'a' + 1) % 26);
-                sb += nextChar;
+            // Calculate the next character, wrapping around after 'z'
+            char nextChar = 'a' + ((sb[i] - 'a' + 1) % 26);
+            sb += nextChar;
             }
         }
+        // Return the k-th character (1-based index, so use k-1)
         return sb[k - 1];
     }
 };
