@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given a list of events where each event is represented by a start and end day, find the maximum value that can be obtained by attending at most k events.
+// Approach: Use dynamic programming with binary search to find the maximum value of attended events.
+
+// Steps:
+// 1. Sort the events by their end day.
+// 2. Use a DP table where dp[i][j] represents the maximum value obtainable by attending j events from the first i events.
+// 3. For each event, use binary search to find the last event that ends before the current event starts.
+// 4. Update the DP table by considering whether to attend the current event or not.
+// 5. Return the maximum value obtainable by attending at most k events.
+
+// Time Complexity - O(n log n) for sorting the events and O(n * k) for filling the DP table, where n is the number of events 
+//                  and k is the maximum number of events that can be attended.
+// Space Complexity - O(n * k) for the DP table.
+
 class Solution {
 public:
     int maxValue(vector<vector<int>>& events, int k) {
