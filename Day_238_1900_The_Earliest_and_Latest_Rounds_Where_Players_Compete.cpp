@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given two players in a tournament, find the earliest and latest rounds they can meet.
+// Approach: Use a recursive depth-first search (DFS) to explore all possible match scenarios.
+
+// Steps:
+// 1. Base case: If the players' positions sum to n + 1, they meet in the current round.
+// 2. Normalize the player positions to ensure p1 < p2 for consistency.
+// 3. If n is small (<= 4), return a fixed result since they will meet in the first round.
+// 4. Use symmetry to reduce the state space by swapping player positions if necessary.
+// 5. Simulate all possible match scenarios by iterating through potential matchups.
+// 6. For each matchup, recursively call the function to find the earliest and latest rounds they can meet.
+// 7. Return the minimum and maximum rounds found during the simulation.
+
+// Time Complexity: O(n^2) in the worst case due to nested loops.
+// Space Complexity: O(n) for the recursion stack.
+
 class Solution 
 {
 public:
