@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Statement: Given a string, calculate the maximum score by removing "ab" or "ba" substrings based on given scores.
+// Approach: Use a greedy strategy to remove the substrings with the highest score first.
+
+// Steps:
+// 1. Initialize variables to keep track of scores and counts of characters.
+// 2. Iterate through the string, counting occurrences of 'a' and 'b'.
+// 3. If the score for removing "ab" is greater than "ba", prioritize removing "ab" first, and vice versa.
+// 4. Calculate the score based on the number of pairs removed.
+// 5. Return the total score.
+
+// Time Complexity: O(N), where N is the length of the string.
+// Space Complexity: O(1), as we are using a constant amount of extra space.
+
 class Solution {
 public:
     int maximumGain(string s, int x, int y) {
