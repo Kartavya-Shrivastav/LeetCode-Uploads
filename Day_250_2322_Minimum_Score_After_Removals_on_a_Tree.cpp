@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Statement: Given a tree represented by nodes and edges, find the minimum score after removing two edges.
+// Approach: Use BFS to traverse the tree, calculate the XOR values for each node, and then evaluate the minimum score
+
+// Steps:
+// 1. Build the graph from the edges and calculate the degree of each node.
+// 2. Use BFS to find leaf nodes and calculate the XOR values for each node.
+// 3. For each pair of edges, calculate the XOR values for the nodes connected by those edges.
+// 4. Determine the maximum and minimum XOR values for the selected edges.
+// 5. Calculate the score as the difference between the maximum and minimum XOR values.
+// 6. Return the minimum score found across all pairs of edges.
+
+// Time Complexity: O(N + M^2), where N is the number of nodes and M is the number of edges.
+// Space Complexity: O(N), for storing the graph and XOR values.
+
 class Solution {
 public:
     int minimumScore(vector<int>& nums, vector<vector<int>>& edges) {
