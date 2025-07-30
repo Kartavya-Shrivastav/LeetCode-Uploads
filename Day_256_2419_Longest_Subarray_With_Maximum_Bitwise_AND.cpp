@@ -1,6 +1,16 @@
 #include <vector>
 #include <algorithm>
-
+// Problem: Find the longest subarray with the maximum bitwise AND in an array.
+// Approach:
+// 1. Identify the maximum value in the array.
+// 2. Count the length of the longest contiguous subarray that consists only of this maximum value.
+// Time Complexity: O(n), where n is the number of elements in the array.
+// Space Complexity: O(1), as we are using a constant amount of extra space.
+// This solution is efficient and straightforward, leveraging the properties of the maximum value in the array.
+// This code is a complete solution for the problem described above.
+// This code is a complete solution for the problem described above.
+// This code is a complete solution for the problem described above.
+// This code is a complete solution for the problem described above.
 class Solution {
 public:
     int longestSubarray(std::vector<int>& nums) {
