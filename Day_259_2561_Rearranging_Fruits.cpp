@@ -1,3 +1,25 @@
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
+// Problem: Rearranging Fruits in Two Baskets
+// Approach: Use a map to count occurrences of each fruit, then determine the minimum cost to rearrange them.
+
+// Steps:
+// 1. Count the total occurrences of each fruit in both baskets.
+// 2. Check if the total count of each fruit is even; if not, return -1 as it's impossible to rearrange.
+// 3. Find the minimum fruit value to determine the cost of swapping.
+// 4. Create a list of fruits that need to be swapped based on the difference in counts.
+// 5. Sort the list of fruits to swap.
+// 6. Calculate the total cost by taking the minimum of the fruit value or double the minimum fruit value for each swap.
+// 7. Return the total cost.
+
+// Time Complexity: O(n log n) due to sorting the fruits to swap.
+// Space Complexity: O(n) for storing the counts and fruits to swap.
+
+
 class Solution {
 public:
     long long minCost(vector<int>& basket1, vector<int>& basket2) {
