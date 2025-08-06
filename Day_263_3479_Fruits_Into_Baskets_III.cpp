@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Count Fruits That Cannot Be Placed in Baskets
+// Approach: Use a segment tree to efficiently track the maximum capacity of baskets and determine how many fruits cannot be placed.
+
+// Steps:
+// 1. Build a segment tree to represent the capacities of the baskets.
+// 2. For each fruit, check if it can be placed in the baskets by querying the segment tree.
+// 3. If the maximum capacity is less than the fruit's size, increment the count of unplaced fruits.
+// 4. If it can be placed, update the segment tree to reflect that the basket has been used by setting the corresponding 
+//    index to -1 (indicating it's no longer available).
+// 5. After processing all fruits, return the count of unplaced fruits.
+
+// Time Complexity: O(n log n) for building the segment tree and O(m log n) for processing m fruits, where n is the number of baskets.
+// Space Complexity: O(n) for the segment tree.
+
 class Solution {
 public:
     int numOfUnplacedFruits(vector<int>& fruits, vector<int>& baskets) {
