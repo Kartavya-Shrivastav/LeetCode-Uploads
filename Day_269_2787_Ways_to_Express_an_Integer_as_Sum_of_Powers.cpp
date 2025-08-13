@@ -15,6 +15,7 @@ using namespace std;
 // Time Complexity: O(log n) for identifying powers of two, O(1) for each query after precomputation
 // Space Complexity: O(log n) for storing powers and their inverses
 
+
 #include <vector>
 using namespace std;
 static const int MOD = 1'000'000'007;
