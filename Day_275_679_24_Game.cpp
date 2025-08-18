@@ -1,46 +1,66 @@
 class Solution {
-    const double EPS = 1e-6;
-
-public:
-    bool judgePoint24(vector<int>& cards) {
-        vector<double> nums;
-        for (int n : cards) nums.push_back((double)n);
-        return dfs(nums);
+private:
+    // Target value.
+    static constexpr double kTarget = 24.0;
+    // Max tolerable error.
+    static constexpr double kEpsilon = 1e-5;
+    bool IsApproxEqual(double a, double b) {
+        return std::abs(a - b) < kEpsilon;
     }
 
-private:
-    bool dfs(vector<double>& nums) {
-        if (nums.size() == 1) {
-            return fabs(nums[0] - 24.0) < EPS;
+    bool ContinueOrBacktrack (std::vector<double>& res) {
+        // Using the current operations, either keep adding new ones or
+        // resolve to less operations.
+        if(find24(res)) {
+            return true;
         }
-
-        for (int i = 0; i < nums.size(); i++) {
-            for (int j = 0; j < nums.size(); j++) {
-                if (i == j) continue;
-
-                vector<double> next;
-                for (int k = 0; k < nums.size(); k++) {
-                    if (k != i && k != j) next.push_back(nums[k]);
-                }
-
-                for (double val : compute(nums[i], nums[j])) {
-                    next.push_back(val);
-                    if (dfs(next)) return true;
-                    next.pop_back();
-                }
-            }
-        }
+        // If we got here, it means the path we went down did not work.
+        // So we backtrack.
+        res.pop_back();
         return false;
     }
-
-    vector<double> compute(double a, double b) {
-        vector<double> res;
-        res.push_back(a + b);
-        res.push_back(a - b);
-        res.push_back(b - a);
-        res.push_back(a * b);
-        if (fabs(b) > EPS) res.push_back(a / b);
-        if (fabs(a) > EPS) res.push_back(b / a);
-        return res;
+public:
+bool judgePoint24(const vector<int>& nums) {
+    // Convert the integers to double.
+    vector<double> vec;
+    for(int n : nums){
+        vec.push_back(static_cast<double>(n));
     }
+    return find24(vec);
+}
+
+bool find24(vector<double>& vec){
+    // When there's only a single operation, evaluate it against the target.
+    if(vec.size() == 1) {
+        return IsApproxEqual(vec[0], kTarget);
+    }
+
+    // Compare all numbers against each other.
+    for(int i = 0; i < vec.size(); ++i) {
+        for(int j = 0; j < vec.size(); ++j) {
+            // Operations can only happen when i != j.
+            if(i == j) continue;
+            vector<double> res;
+            // Get the other numbers.
+            for(int k = 0; k < vec.size(); ++k){
+                if(k != i && k != j) res.push_back(vec[k]);
+            }
+
+            // Addition and multiplication are commutative.
+            if(i < j) {
+                res.push_back(vec[i] + vec[j]);
+                if (ContinueOrBacktrack(res)) return true;
+                res.push_back(vec[i] * vec[j]);
+                if (ContinueOrBacktrack(res)) return true;
+            }
+            res.push_back(vec[i] - vec[j]);
+            if (ContinueOrBacktrack(res)) return true;
+            if (vec[j] != 0.0) {
+                res.push_back(vec[i] / vec[j]);
+                if (ContinueOrBacktrack(res)) return true;
+            }
+        }
+    }
+    return false;
+}
 };
