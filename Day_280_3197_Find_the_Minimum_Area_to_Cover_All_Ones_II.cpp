@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Problem: Find the minimum sum of areas of rectangles that can cover all the 1s in a binary grid when partitioned into 
-//          three rectangles.
+// Problem: Find the minimum sum of areas of rectangles that can cover all the 1s in a binary grid when partitioned into three rectangles.
 // Approach: Use bit manipulation to efficiently check for the presence of 1s in submatrices and evaluate different partitioning
 //          strategies (vertical cuts, horizontal cuts, T-shapes).
 
