@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 37. Sudoku Solver
+// Approach: Backtracking
+
+// Steps:
+// 1. Create a function to check if placing a number is valid
+// 2. Implement the backtracking algorithm
+// 3. Optimize the algorithm by using bitmasks
+// 4. Implement the main function to solve the Sudoku puzzle
+// 5. Return the solved Sudoku board
+
+// Time Complexity: O(9^(N^2)) where N is the number of empty cells
+// Space Complexity: O(N^2) for the recursion stack
+
 class Solution {
 public:
     void solveSudoku(vector<vector<char>>& board) {
