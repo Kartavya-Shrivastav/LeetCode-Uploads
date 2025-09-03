@@ -1,6 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Problem: Given a list of points, find the number of valid pairs (p1, p2) such that p1 is to the left and above p2.
+// Approach: Sort the points and use a nested loop to count valid pairs.
+
+// Steps:
+// 1. Sort the points by x-coordinate (ascending) and y-coordinate (descending).
+// 2. Iterate through each point as a potential "upper-left" corner.
+// 3. For each "upper-left" point, find all valid "bottom-right" points that are to the right and below it.
+// 4. Count the valid pairs.
+// 5. Return the total count of valid pairs.
+
+// Time Complexity: O(n^2)
+// Space Complexity: O(1)
+
 class Solution {
 public:
     int numberOfPairs(vector<vector<int>>& points) {
