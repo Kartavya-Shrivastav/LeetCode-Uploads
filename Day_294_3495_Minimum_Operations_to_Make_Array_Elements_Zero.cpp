@@ -1,3 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given an array of queries where each query consists of two integers [l, r], determine the minimum number of operations required to make all elements in the range [l, r] zero.
+//          In each operation, you can select a power of two and subtract it from any element in
+
+// Approach: For each query, calculate the total number of operations required based on the binary representation of numbers in the range.
+//           Use properties of binary numbers to determine the maximum number of operations needed for any single number
+
+// Steps:
+// 1. For each query, initialize variables to track the total operations and maximum operations for any single number.
+// 2. Loop through possible bit lengths (1 to 31) to cover the range of numbers.
+// 3. For each bit length, determine the range of numbers that can be represented with that many bits.
+// 4. Calculate the count of numbers in the query range that fall within this bit length.
+// 5. For each number in this range, calculate the number of operations required based on its bit length.
+// 6. Update the total operations and maximum operations accordingly.
+// 7. The result for each query is the maximum of the total operations divided by 2 (rounded up) and the maximum operations for any single number.
+
+// Time Complexity: O(Q * 31) where Q is the number of queries, due to the nested loops.
+// Space Complexity: O(1)
+
 class Solution {
 public:
     long long minOperations(vector<vector<int>>& queries) {
