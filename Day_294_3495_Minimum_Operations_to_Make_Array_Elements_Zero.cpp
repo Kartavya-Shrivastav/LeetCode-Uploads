@@ -19,6 +19,7 @@ using namespace std;
 // Time Complexity: O(Q * 31) where Q is the number of queries, due to the nested loops.
 // Space Complexity: O(1)
 
+
 class Solution {
 public:
     long long minOperations(vector<vector<int>>& queries) {
