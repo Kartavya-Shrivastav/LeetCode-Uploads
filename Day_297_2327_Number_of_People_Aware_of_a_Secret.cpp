@@ -9,6 +9,7 @@ using namespace std;
 // 2. Initialize dp[1] = 1 since one person knows the secret on day 1.
 // 3. For each day from 2 to n, calculate the number of new people who learn the secret based on those who can share it (i.e., those who learned it 'delay' days ago) and subtract those who forget it (i.e., those who learned it 'forget' days ago).
 // 4. Finally, sum up the number of people who still remember the secret on day n (i.e., those who learned it from day n-forget+1 to day n).
+// 5. Return the result modulo 10^9 + 7.
 
 // Time Complexity: O(n) since we iterate through each day up to n.
 // Space Complexity: O(n) for the dp array.
