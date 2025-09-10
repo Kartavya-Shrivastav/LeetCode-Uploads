@@ -1,6 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Problem: Given a list of users with the languages they know and a list of friendships, determine the minimum number of users that need to be taught a new language so that all friends can communicate.
+// Approach: Identify users who cannot communicate with their friends and try teaching each language to minimize the number of users that need to be taught.
+
+// Steps:
+// 1. Create a set to track users who cannot communicate with their friends.
+// 2. For each friendship, check if the two users share a common language. If not, add both users to the set.
+// 3. For each language, count how many users in the set do not know that language.
+// 4. Keep track of the minimum count across all languages.
+// 5. Return the minimum count as the result.
+
+// Time Complexity: O(f * l + u * l) where f is the number of friendships, l is the average number of languages per user, and u is the number of users.
+// Space Complexity: O(u) for the set of users to teach.
+
+
 class Solution {
 public:
     int minimumTeachings(int totalLanguages, vector<vector<int>>& userLanguages, vector<vector<int>>& friendships) {
