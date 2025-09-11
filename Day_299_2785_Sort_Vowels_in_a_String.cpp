@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given a string, sort only the vowels in ascending order while keeping the consonants in their original positions.
+// Approach: Extract the vowels, sort them, and then reinsert them back into their original positions in the string.
+
+// Steps:
+// 1. Traverse the string and collect all vowels in a separate list.
+// 2. Sort the list of vowels.
+// 3. Traverse the string again, and whenever a vowel is encountered, replace it with the next vowel from the sorted list.
+// 4. Return the modified string.
+
+// Time Complexity: O(n log n) due to sorting the vowels, where n is the length of the string.
+// Space Complexity: O(m) where m is the number of vowels in the string.
+
 class Solution {
 public:
     string sortVowels(string s) {
