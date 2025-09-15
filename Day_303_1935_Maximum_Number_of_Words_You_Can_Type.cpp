@@ -1,3 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Count words in text that can be typed without using broken letters.
+// Approach: Use a bitmask to represent broken letters and check each word against it.
+
+// Steps:
+// 1. Create a bitmask for broken letters.
+// 2. Split the text into words and check if any letter in a word is in the broken letters bitmask.
+// 3. Count the words that can be typed without using broken letters.
+// 4. Return the count.
+
+// Time Complexity: O(n + m) where n is the length of text and m is the length of brokenLetters.
+// Space Complexity: O(1) since the bitmask uses a fixed amount of space.
 
 class Solution {
 public:
