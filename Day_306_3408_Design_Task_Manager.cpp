@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Design a Task Manager that supports adding, editing, removing, and executing tasks based on priority.
+// Approach: Use a priority queue to manage tasks by priority and a map to track task details.
+
+// Steps:
+// 1. Use a priority queue to always get the highest priority task.
+// 2. Use a map to store task details (priority and userId).
+// 3. Implement methods to add, edit, remove, and execute tasks.    
+// 4. Ensure that removed tasks are not executed by checking the map before execution.
+// 5. When executing a task, remove it from the map to prevent re-execution.
+
+// Time Complexity: O(log n) for add, edit, and execTop operations, O(1) for remove operation.
+// Space Complexity: O(n) for storing tasks in the priority queue and map.
+
 
 using int2=pair<int , int>; 
 int2 mp[100001];// taskID->(prioity, userId)
