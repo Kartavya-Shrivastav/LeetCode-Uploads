@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Implement a Router class that manages network packets with memory constraints. 
+// Approach: Use hash maps and queues to store packets and their timestamps, ensuring efficient addition, forwarding, and counting operations.
+
+// Steps:
+// 1. Define the Router class with private members for size, packet storage, and timestamp tracking.
+// 2. Implement the constructor to initialize the memory limit.
+// 3. Implement addPacket to add packets, ensuring no duplicates and managing memory limits.
+// 4. Implement forwardPacket to remove and return the oldest packet.
+// 5. Implement getCount to count packets for a destination within a time range using binary search.
+// 6. Use helper functions for encoding packet keys and performing binary search.
+// 7. Ensure all operations are efficient and handle edge cases.
+
+// Time Complexity: O(log n) for getCount due to binary search, O(1) for addPacket and forwardPacket on average.
+// Space Complexity: O(m) where m is the memory limit for storing packets.
+
 class Router {
 private:
     int size;
