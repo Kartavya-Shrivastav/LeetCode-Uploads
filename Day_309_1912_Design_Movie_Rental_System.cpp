@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Design a Movie Rental System that supports searching, renting, dropping, and reporting movies across multiple shops.
+// Approach: Use hash maps and sets to efficiently manage available and rented movies, ensuring quick access and updates.
+
+// Steps:
+// 1. Define the MovieRentingSystem class with private members for movie-shop pairs, available movies, and rented movies.
+// 2. Implement the constructor to initialize the system with given entries.
+// 3. Implement search to find up to 5 shops with the cheapest available copies of a movie.
+// 4. Implement rent to mark a movie as rented from a shop.
+// 5. Implement drop to return a rented movie back to availability.
+// 6. Implement report to list up to 5 rented movies sorted by price, shop, and movie ID.
+// 7. Use helper functions for encoding movie-shop pairs and maintaining sorted order in sets.
+
+// Time Complexity: O(log n) for search, rent, drop, and report operations due to set operations.
+// Space Complexity: O(m) where m is the number of unique movie-shop pairs.
+
 struct Node {
     int shop, movie, price;
     bool operator<(const Node& other) const {
