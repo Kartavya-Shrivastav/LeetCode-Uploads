@@ -1,3 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Steps:
+// 1. Handle edge cases such as zero numerator and negative signs.
+// 2. Compute the integer part of the fraction and append it to the result string.
+// 3. Use a map to track remainders and their positions in the result string to identify repeating cycles.
+// 4. For each remainder, multiply by 10, compute the next digit, and update the remainder.
+// 5. If a remainder repeats, insert parentheses to denote the repeating part.
+// 6. Return the final result string.
+
+// Time Complexity: O(n), where n is the number of digits in the fractional part before a repeat is detected.
+// Space Complexity: O(n), for storing remainders in the map.
+
 class Solution {
 public:
     string fractionToDecimal(int numerator, int denominator) {
