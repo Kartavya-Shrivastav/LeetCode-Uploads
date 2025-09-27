@@ -1,3 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Steps:
+// 1. Iterate through all combinations of three points from the given set of points.
+// 2. For each combination, calculate the area of the triangle formed by these points using the determinant method.
+// 3. Keep track of the maximum area encountered during the iterations.
+// 4. Return the maximum area found.
+
+// Time Complexity: O(n^3), where n is the number of points, due to the triple nested loops.
+// Space Complexity: O(1), as we are using a constant amount of extra space.
+
 class Solution {
 public:
     double largestTriangleArea(vector<vector<int>>& points) {
