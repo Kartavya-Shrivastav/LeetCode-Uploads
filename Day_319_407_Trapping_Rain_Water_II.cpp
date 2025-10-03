@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 407. Trapping Rain Water II
+// Approach: Min-Heap (Priority Queue) and BFS
+
+// Steps:
+// 1. Use a min-heap to always expand from the lowest boundary.
+// 2. Initialize the heap with all the boundary cells and mark them as visited.
+// 3. While the heap is not empty, pop the cell with the lowest height.
+// 4. For each of its unvisited neighbors, calculate the trapped water (if any) and update the neighbor's height.
+// 5. Push the neighbor into the heap and mark it as visited.
+// 6. Continue until all cells are processed.
+// 7. Return the total amount of trapped water.
+
+// Time Complexity: O(m * n * log(m + n)), where m and n are the dimensions of the height map.
+// Space Complexity: O(m * n) for the visited array and the heap.
 
 class Solution {
 public:
