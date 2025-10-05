@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 417. Pacific Atlantic Water Flow
+// Approach: BFS from both oceans and mark reachable cells
+
+// Steps:
+// 1. Initialize two queues for the Pacific and Atlantic oceans.
+// 2. Mark the cells adjacent to the Pacific ocean (top row and left column) and add them to the Pacific queue.
+// 3. Mark the cells adjacent to the Atlantic ocean (bottom row and right column) and add them to the Atlantic queue.
+// 4. Perform BFS for both oceans, marking cells that can flow into each ocean.
+// 5. Collect cells that can flow into both oceans and return them as the result.
+// 6. Return the list of coordinates that can flow to both oceans.
+
+// Time Complexity: O(m * n), where m and n are the dimensions of the heights matrix.
+// Space Complexity: O(m * n) for the status array and the queues.
+
 uint8_t status[40000];
 int dir[5]={0, 1, 0, -1, 0};
 
