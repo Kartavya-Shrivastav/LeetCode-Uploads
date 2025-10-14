@@ -1,4 +1,20 @@
-// this variant version uses different UnionFind class
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 1488. Avoid Flood in The City
+// Approach: Union-Find to manage dry days and rainy days
+
+// Steps:
+// 1. Create a Union-Find data structure to manage the days and find the next dry day.
+// 2. Use a hash map to track the last rainy day for each lake.
+// 3. Iterate through the rains array, marking rainy days and finding dry days as needed.
+// 4. If a lake is about to be flooded again, find the next available dry day and assign it to dry that lake.
+// 5. If no dry day is available before the next rain, return an empty array.
+// 6. Return the array indicating which lakes are dried on dry days and -1 on rainy days.
+
+// Time Complexity: O(n log n) in the worst case due to Union-Find operations.
+// Space Complexity: O(n) for the Union-Find structure and the hash map.
+
 class UnionFind{
 public:
     vector<int> root;
