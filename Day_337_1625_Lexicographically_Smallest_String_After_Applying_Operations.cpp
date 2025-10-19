@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Find the lexicographically smallest string after applying a series of operations
+// Approach: Greedy + Simulation
+
+// Steps:
+// 1. Precompute the best possible digit for each digit (0-9) after applying the operation.
+// 2. Use a visited array to keep track of the positions we can modify.
+// 3. For each valid starting position, generate the modified string and keep track of the lexicographically smallest one.
+// 4. Return the smallest string found.
+
+// Time Complexity: O(n^2)
+// Space Complexity: O(n)
+
 class Solution {
 public:
     string findLexSmallestString(const string& s, const int a, const int b) {
