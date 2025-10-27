@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 2043. Simple Bank System
+// Approach: Implement a Bank class with methods for transferring, depositing, and withdrawing money.
+
+// Steps:   
+// 1. Create a Bank class that stores account balances in a vector.
+// 2. Implement a constructor that initializes the balances.
+// 3. Implement the transfer method to move money between accounts if valid.
+// 4. Implement the deposit method to add money to an account if valid.
+// 5. Implement the withdraw method to remove money from an account if valid.
+
+// Time Complexity: O(1) for each operation
+// Space Complexity: O(n) for storing account balances
+
 class Bank {
 private:
     vector<long long> bal;
