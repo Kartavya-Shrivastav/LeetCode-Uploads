@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Make Array Elements Equal to Zero
+// Approach: Iterate through the array, maintaining prefix and suffix sums to count valid selections of zero elements.
+
+// Steps:
+// 1. Calculate the total sum of the array.
+// 2. Iterate through each element, updating prefix and suffix sums.
+// 3. For each zero element, check the conditions based on the difference between prefix and suffix sums.
+// 4. Count the valid selections and return the result.
+
+// Time Complexity: O(n), where n is the number of elements in the array.
+// Space Complexity: O(1), as we are using a constant amount of extra space.
+
+
 class Solution {
 public:
     int countValidSelections(vector<int>& nums) {
