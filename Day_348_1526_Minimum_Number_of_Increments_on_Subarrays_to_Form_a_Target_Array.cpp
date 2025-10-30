@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Minimum Number of Increments on Subarrays to Form a Target Array
+// Approach: Calculate the total increments needed by comparing each element with its predecessor
+
+// Steps:
+// 1. Initialize sum with the first element of the target array
+// 2. Iterate through the target array from the second element
+// 3. For each element, if it is greater than the previous element, add the difference to sum
+// 4. Return the total sum as the result    
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
 class Solution {
 public:
     int minNumberOperations(vector<int>& target) {
