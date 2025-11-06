@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: The Two Sneaky Numbers of Digitville
+// Approach: Use XOR to find the two missing numbers in the array
+
+// Steps:
+// 1. Compute the XOR of all numbers in the array and all numbers from 0
+// 2. Find a set bit in the XOR result to differentiate the two missing numbers
+// 3. Partition the numbers into two groups based on the set bit and compute XOR for each group
+// 4. The results of the two groups will be the two missing numbers
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
 class Solution {
 public:
     vector<int> getSneakyNumbers(vector<int>& nums) {
