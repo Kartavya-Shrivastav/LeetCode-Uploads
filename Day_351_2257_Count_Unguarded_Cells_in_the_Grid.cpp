@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Count Unguarded Cells in the Grid
+// Approach: Simulate the guarding process by marking cells in the grid
+
+// Steps:
+// 1. Initialize a grid and mark walls and guards   
+// 2. For each guard, mark all cells in its line of sight until a wall or grid boundary is reached
+// 3. Count the remaining unguarded cells
+// 4. Return the count of unguarded cells
+
+// Time Complexity: O(m*n) where m and n are the dimensions of the grid
+// Space Complexity: O(m*n) for the grid representation
+
 char grid[100000];
 class Solution {
 public:
