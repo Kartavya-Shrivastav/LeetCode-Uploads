@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Manage a power grid with n stations and connections, processing queries to take stations offline or find the smallest online station in the same component.
+// Approach: Use Disjoint Set Union (DSU) to manage connected components and a min-heap for each component to efficiently retrieve the smallest online station.
+
+// Steps:
+// 1. Implement DSU class with path compression and union by rank.
+// 2. Initialize DSU and online status for each station.
+// 3. Union connected stations.
+// 4. Create a min-heap for each connected component to track online stations.
+// 5. Process queries to take stations offline or find the smallest online station in the same component.
+// 6. Return results for type 1 queries.
+
+// Time Complexity: O((n + q) * α(n)) where α is the inverse Ackermann function, n is number of stations, and q is number of queries.
+// Space Complexity: O(n) for DSU and heaps.
+
 class DSU {
 public:
     vector<int> parent;
