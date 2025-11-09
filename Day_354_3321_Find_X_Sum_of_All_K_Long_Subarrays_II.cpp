@@ -1,110 +1,125 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
+class Solution 
+{
 public:
-    struct cmp {
-        bool operator()(const pair<int,int>& a, const pair<int,int>& b) const {
-            if (a.first == b.first) return a.second > b.second;
-            return a.first > b.first;
-        }
-    };
-
-    vector<long long> findXSum(vector<int>& nums, int k, int x) {
+    vector<long long> findXSum(vector<int>& nums, int k, int x) 
+    {
         int n = nums.size();
-        vector<long long> res;
+        vector<long long> ans(n - k + 1);
         unordered_map<int,int> freq;
 
-        set<pair<int,int>, cmp> topX, rest;
-        long long xSum = 0;
-
-        auto addToTop = [&](pair<int,int> p) {
-            topX.insert(p);
-            xSum += 1LL * p.first * p.second;
+        // Step 1: Initialize structures
+        auto cmp = [&](int a, int b) 
+        {
+            if (freq[a] != freq[b])
+            {
+                return freq[a] < freq[b];
+            } 
+            return a < b;
         };
 
-        auto removeFromTop = [&](pair<int,int> p) {
-            auto it = topX.find(p);
-            if (it != topX.end()) {
-                xSum -= 1LL * p.first * p.second;
-                topX.erase(it);
-            }
-        };
+        set<int, decltype(cmp)> topX(cmp), rest(cmp);
+        long long sumTop = 0;
 
-        auto addPair = [&](pair<int,int> p) {
-            if ((int)topX.size() < x) {
-                addToTop(p);
-                return;
-            }
+        // Step 2: Ordering / comparator defined above
 
-            if (!topX.empty()) {
-                auto worst = *prev(topX.end());
-                // If new pair is "better" than current worst
-                if (cmp{}(p, worst)) {
-                    removeFromTop(worst);
-                    rest.insert(worst);
-                    addToTop(p);
-                } else {
-                    rest.insert(p);
-                }
-            } else rest.insert(p);
-        };
-
-        auto erasePair = [&](pair<int,int> p) {
-            if (topX.count(p)) removeFromTop(p);
-            else rest.erase(p);
-        };
-
-        auto rebalance = [&]() {
-            // Fill topX if it's too small
-            while ((int)topX.size() < x && !rest.empty()) {
-                auto best = *rest.begin();
-                rest.erase(rest.begin());
-                addToTop(best);
+        auto rebalance = [&]() 
+        {
+            // Step 4: rebalance logic
+            while ((int)topX.size() < min(x, (int)freq.size()) && !rest.empty()) 
+            {
+                int best = *prev(rest.end());
+                rest.erase(prev(rest.end()));
+                topX.insert(best);
+                sumTop += 1LL * freq[best] * best;
             }
 
-            // Fix ordering if violated
-            while (!topX.empty() && !rest.empty()) {
-                auto worst = *prev(topX.end());
-                auto best = *rest.begin();
-                // If worst(topX) is still better than best(rest), stop
-                if (cmp{}(worst, best)) break;
-
-                // Swap them
-                rest.erase(best);
+            while ((int)topX.size() > x) 
+            {
+                int worst = *topX.begin();
+                topX.erase(topX.begin());
                 rest.insert(worst);
-                removeFromTop(worst);
-                addToTop(best);
+                sumTop -= 1LL * freq[worst] * worst;
+            }
+
+            while (!topX.empty() && !rest.empty()) 
+            {
+                int worstTop = *topX.begin();
+                int bestRest = *prev(rest.end());
+                int fw = freq[worstTop], fr = freq[bestRest];
+
+                if (fr > fw || (fr == fw && bestRest > worstTop)) 
+                {
+                    topX.erase(topX.begin());
+                    rest.erase(prev(rest.end()));
+                    topX.insert(bestRest);
+                    rest.insert(worstTop);
+                    sumTop += 1LL * fr * bestRest - 1LL * fw * worstTop;
+                } 
+                else 
+                {
+                    break;
+                }
             }
         };
 
-        auto addElement = [&](int val) {
-            int f = freq[val];
-            if (f > 0) erasePair({f, val});
-            freq[val]++;
-            addPair({freq[val], val});
+        // Step 3,5,6 and Step 7: Main sliding-window loop
+        for (int i = 0; i < n; ++i) 
+        {
+            int v = nums[i];
+            int old = freq[v];
+
+            if (old > 0) 
+            {
+                if (topX.erase(v)) 
+                {
+                    sumTop -= 1LL * old * v;
+                } 
+                else 
+                {
+                    rest.erase(v);
+                }
+            }
+
+            freq[v] = old + 1;
+            rest.insert(v);
             rebalance();
-        };
 
-        auto removeElement = [&](int val) {
-            int f = freq[val];
-            erasePair({f, val});
-            freq[val]--;
-            if (freq[val] > 0) addPair({freq[val], val});
-            rebalance();
-        };
+            if (i >= k) 
+            {
+                int u = nums[i - k];
+                int oldU = freq[u];
 
-        // First window
-        for (int i = 0; i < k; ++i) addElement(nums[i]);
-        res.push_back(xSum);
+                if (topX.erase(u)) 
+                {
+                    sumTop -= 1LL * oldU * u;
+                } 
+                else 
+                {
+                    rest.erase(u);
+                }
 
-        // Slide window
-        for (int i = k; i < n; ++i) {
-            removeElement(nums[i - k]);
-            addElement(nums[i]);
-            res.push_back(xSum);
+                if (oldU == 1) 
+                {
+                    freq.erase(u);
+                } 
+                else 
+                {
+                    freq[u] = oldU - 1;
+                    rest.insert(u);
+                }
+                rebalance();
+            }
+
+            if (i >= k - 1) 
+            {
+                ans[i - k + 1] = sumTop;
+            }
         }
 
-        return res;
+        // Step 9: Return result
+        return ans;
     }
 };
