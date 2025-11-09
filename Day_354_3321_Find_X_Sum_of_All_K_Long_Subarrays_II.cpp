@@ -1,6 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Problem: Find X Sum of All K Long Subarrays II
+// Approach: Use a sliding window with two balanced sets to maintain the top x unique elements and
+//           the rest. Use a frequency map to track counts of elements in the current window. Rebalance the sets
+//           after each insertion and deletion to ensure the top x elements are always in the top set.
+
+// Steps:
+// 1. Initialize frequency map and two sets with custom comparator to maintain order based on frequency and value.
+// 2. Define a rebalance function to ensure the top set contains the top x elements.
+// 3. Iterate through the array, adding new elements and removing old elements as the window
+//    slides. Update the frequency map and sets accordingly.
+// 4. After processing each complete window, store the sum of the top x elements in the result vector.
+// 5. Return the result vector containing sums for all k-length subarrays.
+
+// Time Complexity: O(n log k) where n is the number of elements in nums and k is the length of each subarray.
+// Space Complexity: O(k) for the frequency map and sets.
+
 class Solution 
 {
 public:
