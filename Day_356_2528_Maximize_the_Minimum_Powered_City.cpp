@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Maximize the minimum power of all cities after adding additional power stations within a given range.
+// Approach: Use binary search to find the maximum minimum power achievable. For each mid value, check if it's possible to achieve that power using a greedy approach with a sliding window.
+
+// Steps:
+// 1. Define a function to check if a given minimum power can be achieved.
+// 2. Use binary search over the possible power values.
+// 3. In the check function, use a sliding window to simulate adding power stations and verify if the minimum power can be met.
+// 4. Return the maximum minimum power found.
+
+// Time Complexity: O(n log(m)) where n is the number of cities and m is the range of possible power values.
+// Space Complexity: O(n) for the temporary arrays used in the check function.
+
 class Solution {
  public:
   long long maxPower(vector<int>& stations, int r, int k) {
