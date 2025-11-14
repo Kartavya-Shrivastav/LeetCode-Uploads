@@ -1,3 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given an n x n matrix initialized with all 0's and a list of queries where each query consists of four integers [r1, c1, r2, c2] representing the top-left and bottom-right coordinates of a submatrix, increment all elements within that submatrix by 1. Return the final matrix after processing all queries.
+// Approach: 
+
+// Steps:
+// 1. 
+// 2. 
+
+// Time Complexity: O(n^2 + q) where n is the size of the matrix and q is the number of queries.
+// Space Complexity: O(n^2) for the difference array.   
+
+
 class Solution {
 public:
     static vector<vector<int>> rangeAddQueries(int n, vector<vector<int>>& queries) {
