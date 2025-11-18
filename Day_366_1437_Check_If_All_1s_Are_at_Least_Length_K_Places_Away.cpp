@@ -22,7 +22,7 @@ public:
 
         for (int i = 0; i < n; i++) {
             if (f && nums[i] == 1) {
-                f = false;
+                f = false;○
                 pre_index = i;
                 continue;
             }
