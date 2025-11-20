@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Set Intersection Size At Least Two
+// Approach: Greedy + Sorting
+
+// Steps:
+// 1. Sort intervals by their end points in ascending order. If two intervals have the same end point, sort by start point in descending order.
+// 2. Initialize two points `a` and `b` to cover the first interval.    
+// 3. Iterate through the sorted intervals and check if the current interval is already covered by `a` and `b`.
+// 4. If not covered, update `a` and `b` accordingly and increment the count of points used.
+// 5. Return the total count of points used.
+
+// Time Complexity: O(n log n) (due to sorting)
+// Space Complexity: O(1)
+
 class Solution {
 public:
     static int intersectionSizeTwo(vector<vector<int>>& I) {
