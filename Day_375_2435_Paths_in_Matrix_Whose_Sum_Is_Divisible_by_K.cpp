@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Paths in Matrix Whose Sum Is Divisible by K
+// Approach: Dynamic Programming with Space Optimization
+
+// Steps:
+// 1. Initialize two 2D vectors `prev` and `curr` to store the number of paths to each cell with sums modulo k.
+// 2. Fill the first row of the `prev` array based on the cumulative sums modulo k.
+// 3. Iterate through each cell in the matrix starting from the second row.
+// 4. For each cell, update the `curr` array based on the values from the `prev` array and the left cell in the `curr` array.
+// 5. After processing each row, swap `prev` and `curr` to save space.
+// 6. Finally, return the number of paths to the bottom-right cell with sum modulo k equal to 0.
+
+// Time Complexity: O(m * n * k)
+// Space Complexity: O(n * k) due to the two 2D vectors used for dynamic programming
+
 class Solution {
 public:
     int numberOfPaths(vector<vector<int>>& grid, int k) {
