@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Maximum Number of K-Divisible Components in a Tree
+// Approach: Depth-First Search (DFS) with Post-Order Traversal
+
+// Steps:
+// 1. Construct the tree using an adjacency list from the given edges.
+// 2. Perform a DFS to determine the parent-child relationships and store nodes in a stack for post-order processing.
+// 3. Initialize a sum array to keep track of the sum of values in each subtree.
+// 4. Process nodes in post-order using the stack, checking if the subtree sum is divisible by k.
+// 5. If divisible, increment the count of k-divisible components; otherwise, propagate the sum to the parent node.
+// 6. Return the total count of k-divisible components.
+
+// Time Complexity: O(n) where n is the number of nodes in the tree
+// Space Complexity: O(n) for the adjacency list and other auxiliary data structures
+
+
 class Solution {
 public:
     int maxKDivisibleComponents(int n, vector<vector<int>>& edges, vector<int>& values, int k) {
