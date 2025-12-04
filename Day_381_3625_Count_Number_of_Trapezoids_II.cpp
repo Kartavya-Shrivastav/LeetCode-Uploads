@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Count Number of Trapezoids II
+// Approach: Hashing Slopes and Intercepts
+
+// Steps:
+// 1. For each pair of points, calculate the slope (k) and y-intercept (b) of the line formed by the points.
+// 2. Use a hash map to group lines by their slopes and store their intercepts.
+// 3. Use another hash map to group lines by the midpoint of the points and store their slopes.
+// 4. Count the number of trapezoids formed by lines with the same slope but different intercepts.
+// 5. Subtract the count of trapezoids formed by lines with the same midpoint to avoid double counting.
+// 6. Return the final count of trapezoids.
+
+// Time Complexity: O(n^2) where n is the number of points (due to pairwise combinations)
+// Space Complexity: O(n^2) for storing slopes and intercepts
+
 class Solution {
 public:
     int countTrapezoids(vector<vector<int>>& points) {
