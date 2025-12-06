@@ -28,7 +28,7 @@ public:
         backX=backN=-1;
 
         long long cnt=0;
-        int* sum=(int*)alloca((n+2)*sizeof(int));
+        int* sum=(int*)malloc((n+2)*sizeof(int));
         memset(sum, 0, sizeof(sum));
         sum[1]=1;
 
