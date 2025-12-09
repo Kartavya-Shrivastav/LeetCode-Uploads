@@ -1,4 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
 
+// Problem: Count Special Triplets
+// Approach: Frequency Counting with Prefix Sums
+
+// Steps:
+// 1. Count the frequency of each number in the input array.
+// 2. Use a prefix frequency array to keep track of how many times each number has appeared up to the current index.
+// 3. For each element in the array (except the first and last), check if double its value exists in the array.
+// 4. Calculate the number of valid triplets using the prefix frequency and total frequency of the doubled value.
+// 5. Sum up the counts for all valid triplets and return the result modulo 10^9 + 7.
+
+// Time Complexity: O(n) where n is the size of the input array
+// Space Complexity: O(M) where M is the maximum value in the input array
 
 const int mod=1e9+7;
 class Solution {
