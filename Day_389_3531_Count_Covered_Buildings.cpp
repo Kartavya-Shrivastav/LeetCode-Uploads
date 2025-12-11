@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Count Covered Buildings
+// Approach: Boundary Tracking for Each Row and Column
+
+// Steps:
+// 1. Initialize four vectors to track the minimum and maximum x and y coordinates for each row and column.
+// 2. Update these vectors based on the coordinates of each building.
+// 3. Count buildings that are covered by checking if their coordinates lie strictly within the boundaries.
+// 4. Return the count of covered buildings. 
+
+// Time Complexity: O(n) where n is the number of buildings.
+// Space Complexity: O(m) where m is the maximum coordinate value (for boundary tracking).
+
 class Solution {
 public:
     int countCoveredBuildings(int n, vector<vector<int>>& buildings) {
