@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Count Mentions Per User
+// Approach: Sort events by time and process each event to count mentions based on user status.
+
+// Steps:
+// 1. Sort events based on the timestamp and user ID.
+// 2. Initialize a vector to keep track of mentions for each user.
+// 3. Iterate through each event and update the mention counts based on the type of event and user status.
+// 4. Return the final counts of mentions for each user.
+
+// Complexity Analysis:
+// - Time Complexity: O(E log E + E * U) where E is the number of events and U is the number of users.  
+// - Space Complexity: O(U) for storing the mention counts and online status.
+
 #include<ranges>
 class Solution {
 public:
