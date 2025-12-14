@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Coupon Code Validator
+// Approach: Validate coupon codes based on activity status and business line, then sort and return valid codes.
+
+// Steps:
+// 1. Iterate through the list of coupon codes along with their business lines and activity status.
+// 2. Check if each coupon code is active and belongs to one of the specified business lines.
+// 3. Validate the format of each coupon code to ensure it contains only allowed characters (letters, digits, underscores).
+// 4. Store valid coupon codes in a map categorized by business line.
+// 5. Sort the valid coupon codes within each business line and compile the final list in the specified order.
+
+// Complexity Analysis:
+// - Time Complexity: O(N log N) where N is the number of coupon codes, due to sorting the valid codes.
+// - Space Complexity: O(N) for storing valid coupon codes.
+
 class Solution {
 public:
     vector<string> validateCoupons(vector<string>& code, vector<string>& businessLine, vector<bool>& isActive) {
