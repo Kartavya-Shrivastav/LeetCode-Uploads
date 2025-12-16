@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Steps:
+// 1. Build tree from hierarchy
+// 2. DFS with DP on tree
+//   State: (node, bossBuy, buy, budget)
+//   Transition: Merge children's DP results
+// 3. Return max profit from root's DP states within budget
+
+// Complexity:
+// Time: O(N * B^2) where N is number of nodes and B is budget
+// Space: O(N * B) for DP table
+
+
 const int N=161 ,N4=161*4;
 int profit[N][2];
 vector<int> children[N];
