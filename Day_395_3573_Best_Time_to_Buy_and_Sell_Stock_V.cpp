@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Best Time to Buy and Sell Stock V
+// Approach: Dynamic Programming
+
+// Steps:
+// 1. Define a DP state to keep track of maximum profit with at most k transactions.
+// 2. Iterate through each price and update the DP states accordingly.
+// 3. Return the maximum profit after processing all prices.
+
+// Complexity:
+// Time: O(n * k) where n is the number of days and k is the maximum number of transactions
+// Space: O(k) for DP table
+
 struct Data{
     long long profit=0, buy=0, sell=0;
     Data(long long profit=0, long long buy=0, long long sell=0):
