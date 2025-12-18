@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Best Time to Buy and Sell Stock using Strategy
+// Approach: Prefix Sums and Sliding Window
+
+// Steps:
+// 1. Compute a prefix sum array where each element is the cumulative sum of strategy[i] * prices[i].
+// 2. Use a sliding window of size k to evaluate the maximum profit obtainable by adjusting the strategy.
+// 3. Return the maximum profit found.
+
+// Complexity:
+// Time: O(n) where n is the number of days
+// Space: O(n) for prefix sum array
+
 const int N=1e5+1;
 long long sum[N];
 class Solution {
