@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Find All People With Secret
+// Approach: Union-Find (Disjoint Set Union)
+
+// Steps:
+// 1. Sort meetings by time using counting sort since time_i <= 10^5    
+// 2. Use Union-Find to connect people who meet at the same time.
+// 3. After processing all meetings at a given time, disconnect those not connected to person 0.
+// 4. Collect all people connected to person 0.
+// 5. Return the list of people who know the secret.
+
+// Complexity:
+// Time: O(m + n) where m is number of meetings and n is number of people
+// Space: O(n + T) where T is the range of time values (up to 10^5)
+
 //UnionFind modified from my old code https://leetcode.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/solutions/3930534/c-kruskal-s-algorithm-beats-95-26-math/
 class UnionFind {    
     vector<int> root, rank;
