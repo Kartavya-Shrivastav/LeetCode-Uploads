@@ -4,6 +4,21 @@
 #include <algorithm>
 using namespace std;
 
+// Problem: Delete Columns to Make Sorted III
+// Approach: Dynamic Programming to find the longest non-decreasing subsequence of columns
+
+// Steps:
+// 1. Use a DP array where dp[i] represents the length of the longest valid subsequence ending with column i.   
+// 2. For each column i, check all previous columns j < i to see if adding column i maintains the non-decreasing order for all strings.
+// 3. If valid, update dp[i] = max(dp[i], dp[j] + 1).
+// 4. The answer is the total number of columns minus the length of the longest valid subsequence found in the DP array.
+// 5. Return the result.
+
+// Complexity:
+// Time: O(n^2 * m) where n is number of columns and m is number of strings
+// Space: O(n) for the DP array
+
+
 class Solution {
 public:
     int minDeletionSize(vector<string>& strs) {
