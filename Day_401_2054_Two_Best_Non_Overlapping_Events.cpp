@@ -13,7 +13,7 @@ using namespace std;
 
 // Complexity:
 // Time: O(n log n) due to sorting the events
-// Space: O(n) for storing the time points
+// Space: O(n) for storing the time points.
 
 class Solution {
 public:
