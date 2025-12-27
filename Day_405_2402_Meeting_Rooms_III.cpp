@@ -1,3 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Problem: Meeting Rooms III
+// Approach: Use two priority queues, one for available rooms and another for occupied rooms. Sort meetings by start time and assign rooms based on availability and meeting end times.
+
+// Steps:
+// 1. Sort the meetings based on their start times.
+// 2. Use a min-heap (priority queue) to keep track of available rooms.
+// 3. Use another min-heap to keep track of occupied rooms and their end times.
+// 4. For each meeting, check if any rooms have become available by comparing the current meeting's start time with the end times in the occupied rooms heap.
+// 5. If a room is available, assign it to the meeting and update the end time.
+// 6. If no rooms are available, wait for the earliest room to free up and assign it to the meeting.
+
+// Time Complexity: O(m log m + m log n) where m is the number of meetings and n is the number of rooms.
+// Space Complexity: O(n + m) for the priority queues and count array.
+
+
 class Solution {
 public:
     int mostBooked(int n1, vector<vector<int>>& meetings) {
