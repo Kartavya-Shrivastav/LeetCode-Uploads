@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Pyramid Transition Matrix
+// Approach: Use DFS with memoization to explore possible pyramid configurations based on allowed transitions.
+
+// Steps:
+// 1. Parse the allowed transitions into a 2D array for quick access.   
+// 2. Represent the pyramid levels using bit manipulation for efficient storage and retrieval.
+// 3. Implement a DFS function that attempts to build the pyramid from the bottom up, checking all possible top blocks for each pair of adjacent blocks.
+// 4. Use a visited array to memoize already explored configurations to avoid redundant calculations.
+// 5. If the pyramid can be successfully built to the top, return true; otherwise, return false.
+// 6. The main function initializes the pyramid and starts the DFS process.
+
+// Time Complexity: O(k^(n^2)) in the worst case, where k is the number of allowed transitions and n is the height of the pyramid.
+// Space Complexity: O(n^2) for the pyramid representation and visited states.
 
 class Solution {
 public:
