@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Magic Squares In Grid
+// Approach: Check every 3x3 sub-grid to see if it forms a magic square 
+
+// Steps:
+// 1. Iterate through each possible starting point of a 3x3 sub-grid in the given grid.
+// 2. For each sub-grid, check if it contains all numbers from 1 to 9 exactly once.
+// 3. Verify that the sums of each row, each column, and both diagonals are equal.
+// 4. Count the number of valid magic squares found.
+// 5. `isMagicSquare` function checks if a 3x3 sub-grid is a magic square.
+// 6. `numMagicSquaresInside` function iterates through the grid and counts all magic squares.
+// 7. Return the total count of magic squares found.
+
+// Time Complexity: O(m * n) where m is the number of rows and n is the number of columns in the grid.
+// Space Complexity: O(1) since the extra space used does not depend on the input
+
 class Solution {
 public:
     bool isMagicSquare(vector<vector<int>>& grid, int r, int c) {
