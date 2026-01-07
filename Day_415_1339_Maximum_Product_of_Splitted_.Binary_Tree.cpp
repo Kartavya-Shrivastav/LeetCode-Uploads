@@ -13,6 +13,16 @@ using namespace std;
 // Time Complexity: O(n), where n is the number of nodes in the binary tree, as we visit each node a constant number of times.    
 // Space Complexity: O(h), where h is the height of the binary tree, due to the recursion stack.
 
+ struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ };
+
+
 class Solution {
 public:
 long long mod = 1e9 + 7;
