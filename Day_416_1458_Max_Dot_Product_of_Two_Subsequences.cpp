@@ -1,6 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Problem: 1458. Max Dot Product of Two Subsequences
+// Approach: We use a recursive dynamic programming approach with memoization to explore all possible subsequences
+
+// Steps:
+// 1. Define a recursive function `dp(i, j)` that computes the maximum dot product starting from indices `i` in `nums1` and `j` in `nums2`.
+// 2. At each step, we have the option to take the product of `nums1[i]` and `nums2[j]` and either continue or end the subsequence, or skip one of the elements.
+// 3. Use memoization to store already computed results for pairs `(i, j)`.
+// 4. The base case is when we reach the end of either array, returning a very negative number to indicate no valid subsequence can be formed.
+// 5. Finally, return the result of `dp(0, 0)` which gives the maximum dot product for the entire arrays.
+
+// Time Complexity: O(n * m), where n and m are the lengths of nums1 and nums2 respectively, as we compute each state once.
+// Space Complexity: O(n * m) for the memoization table.
+
 class Solution {
 public:
     vector<int> nums1, nums2;
