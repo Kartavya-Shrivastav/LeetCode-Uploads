@@ -14,6 +14,17 @@ using namespace std;
 // Time Complexity: O(n), where n is the number of nodes in the tree, as we visit each node once.
 // Space Complexity: O(n) for storing the parent mapping and the queue.
 
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+     
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 class Solution {
 public:
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
