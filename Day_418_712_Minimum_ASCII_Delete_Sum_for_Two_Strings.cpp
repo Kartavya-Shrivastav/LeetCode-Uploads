@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 712. Minimum ASCII Delete Sum for Two Strings
+// Approach: Dynamic Programming to find the minimum ASCII delete sum to make two strings equal.
+
+// Steps:
+// 1. Create a 2D DP array where dp[i][j] represents the minimum ASCII delete sum to make s1[0..i-1] and s2[0..j-1] equal.
+// 2. Initialize the first row and first column based on the ASCII values of the characters.
+// 3. Fill the DP table using the following logic:
+//    - If characters match, carry forward the value from dp[i-1][j-1].
+//    - If characters do not match, take the minimum of deleting a character from either string.
+// 4. The value at dp[m][n] will be the result, where m and n are the lengths of s1 and s2 respectively.
+
+// Time Complexity: O(m*n), where m and n are the lengths of the two strings.
+// Space Complexity: O(m*n) for the DP table.
+
 class Solution {
 public:
     int minimumDeleteSum(string s1, string s2) {
