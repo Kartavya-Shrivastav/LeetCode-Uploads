@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Statement: Given two arrays representing the bottom-left and top-right coordinates of rectangles, find the largest area of a square that can fit inside the intersection of any two rectangles.
+// Approach: We will iterate through all pairs of rectangles, calculate their intersection, and determine the largest square that can fit within that intersection.
+
+// Steps:
+// 1. Iterate through all pairs of rectangles using nested loops.
+// 2. For each pair, calculate the coordinates of the intersection rectangle.
+// 3. Determine the width and height of the intersection.
+// 4. The side length of the largest square that can fit in the intersection is the minimum of the width and height.
+// 5. Keep track of the maximum side length found and compute the area at the end.
+
+// Time Complexity: O(n^2), where n is the number of rectangles, as we check all pairs.
+// Space Complexity: O(1), as we are using only a constant amount of extra space
+
+
 class Solution {
 public:
     long long largestSquareArea(vector<vector<int>>& bottomLeft, vector<vector<int>>& topRight) {
