@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Statement: Given a 2D grid of integers, find the largest magic square within the grid. A magic square is defined as a square where the sums of each row, each column, and both main diagonals are all equal.
+// Approach: We will use prefix sums to efficiently calculate the sums of rows, columns, and diagonals for any sub-square in the grid. We will then check all possible squares starting from the largest size down to 2x2 to find the largest magic square.
+
+// Steps:
+// 1. Precompute prefix sums for rows, columns, main diagonals, and anti-diagonals.
+// 2. Iterate over all possible square sizes from the largest to the smallest.
+// 3. For each square size, check all possible top-left corners of the square in the grid.
+// 4. Use the prefix sums to quickly calculate the sums of rows, columns, and diagonals for the current square.
+// 5. If a magic square is found, return its size immediately.
+
+// Time Complexity: O(min(m, n)^3), where m and n are the dimensions of the grid, as we check all possible squares.
+// Space Complexity: O(m * n), for storing the prefix sums.
+
 class Solution {
 public:
     bool isMagic(vector<vector<array<int,4>>> const & prefixSum, int r, int c, int sz) {
