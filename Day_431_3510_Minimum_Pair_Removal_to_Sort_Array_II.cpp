@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given an array of integers, you can perform the following operation any number of times: select two adjacent elements and replace them with their sum. The goal is to determine the minimum number of such operations required to make the array sorted in non-decreasing order.
+// Approach: The approach involves using a priority queue to always merge the pair of adjacent elements with the smallest sum, while maintaining the sorted order of the array.
+
+// Steps:
+// 1. Initialize a priority queue to store sums of adjacent pairs along with their indices.
+// 2. Maintain arrays to track the previous and next indices of each element to efficiently update the adjacency after merges.
+// 3. Keep track of the number of sorted adjacent pairs to quickly check if the array is sorted.
+// 4. Repeatedly extract the minimum sum pair from the priority queue, merge them, and update the necessary structures until the array is sorted.
+// 5. Return the count of operations performed.
+
+// Time Complexity: O(n log n) in the average case, as each merge operation involves logarithmic time complexity due to the priority queue operations.
+// Space Complexity: O(n) additional space for the priority queue and tracking arrays.
+
 class Solution {
 public:
     int minimumPairRemoval(vector<int>& nums) {
