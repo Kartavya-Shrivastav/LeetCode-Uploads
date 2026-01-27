@@ -1,3 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 3650. Minimum Cost Path with Edge Reversals
+// Given a directed graph with weighted edges, find the minimum cost to reach from node 0 to node n-1,
+// where reversing an edge incurs double the cost of traversing it in the original direction.
+
+// Approach: Use Dijkstra's algorithm to find the shortest path in a modified graph where each edge can be traversed
+// in both directions, with the cost of reversing an edge being double the original cost.
+
+// Steps:
+// 1. Construct an adjacency list for the graph, adding both the original edges and the reversed edges with double cost.
+// 2. Initialize a priority queue to implement Dijkstra's algorithm.
+// 3. Maintain a distance array to track the minimum cost to reach each node.
+// 4. Process nodes from the priority queue, updating distances for adjacent nodes as shorter paths are found.
+// 5. Return the minimum cost to reach node n-1, or -1 if it is unreachable.
+
+// Time Complexity: O((V + E) log V) where V is the number of vertices and E is the number of edges.
+// Space Complexity: O(V + E) for the adjacency list and distance array.
+
 // with packing data into uint64
 using u16=unsigned short;
 using u64=unsigned long long;
