@@ -7,7 +7,7 @@ static int xList[M], nxt[NN];
 static unsigned dp[2][NN]; 
 static unsigned suffixMin[M]; 
 
-class Solution {
+class Solution      {
 public:
     static inline int idx(int i, int j, int c) { return i*c+j; }
 
