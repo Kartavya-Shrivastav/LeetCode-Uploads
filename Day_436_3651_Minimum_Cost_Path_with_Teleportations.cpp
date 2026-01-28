@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: 3651. Minimum Cost Path with Teleportations
+// Given a grid where each cell has a cost, find the minimum cost to reach from the top-left corner to the bottom-right corner.
+// You can move right or down, and you have the option to teleport to any cell with the same value in the grid a limited number of times.
+
+// Approach: Use dynamic programming to compute the minimum cost path while considering teleportations. 
+
+// Steps:
+// 1. Group cell indices by their values to facilitate teleportation.   
+// 2. Initialize a DP table to store the minimum cost to reach each cell without teleportation.
+// 3. For each allowed teleportation, update the DP table by considering the minimum cost to reach cells via teleportation.
+// 4. Return the minimum cost to reach the bottom-right corner after using up to k teleportations.
+
+// Time Complexity: O(k * (r * c + V)) where r and c are the number of rows and columns, and V is the number of unique values in the grid.
+// Space Complexity: O(r * c + V) for the DP table and value grouping.
+
 const int M=1e4+1, NN=6400;
 const int INF=1e9+7;
 
