@@ -1,7 +1,20 @@
-#include <vector>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+
+// Problem: 2976. Minimum Cost to Convert String I
+// Given two strings source and target of equal length, and a list of character conversion operations with associated costs,
+// find the minimum cost to convert source into target using the given operations. If it's not possible, return -1.
+
+// Approach: Use the Floyd-Warshall algorithm to find the minimum cost of converting each character to every other character.
+// Steps:
+// 1. Initialize a 26x26 cost matrix for all lowercase letters, setting the cost of converting a character to itself as 0 and others as infinity.
+// 2. Update the cost matrix with the given conversion operations.
+// 3. Apply the Floyd-Warshall algorithm to compute the minimum conversion costs between all pairs of characters.
+// 4. For each character in source, check the cost to convert it to the corresponding character in target and accumulate the total cost.
+// 5. If any character cannot be converted, return -1; otherwise, return the total cost.
+
+// Time Complexity: O(26^3 + n) where n is the length of the strings.
+// Space Complexity: O(1) since the cost matrix size is constant (26x26).
 
 class Solution {
 public:
