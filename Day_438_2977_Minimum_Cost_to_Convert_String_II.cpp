@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Link: https://leetcode.com/problems/minimum-cost-to-convert-string-ii/
+// Given two strings source and target, and a list of string transformations with associated costs,
+// determine the minimum cost to convert source into target using the transformations.
+
+// Approach:
+// 1. Map each unique string in the transformations to a unique ID.
+// 2. Construct a distance matrix to represent the cost of transforming one string to another.
+// 3. Use the Floyd-Warshall algorithm to find the minimum cost of transforming any string to another.
+// 4. Use memoized DFS to explore all possible ways to convert source to target, considering substring replacements.    
+// 5. Return the minimum cost found, or -1 if conversion is impossible.
+
+// Time Complexity: O(N^3 + N * M^2), where N is the number of unique strings and M is the length of the source/target strings. 
+// Space Complexity: O(N^2 + M), for the distance matrix and memoization array.
+
 class Solution {
 public:
     const long long INF = 1e18;
