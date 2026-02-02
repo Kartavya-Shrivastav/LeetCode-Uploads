@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Statement: Given an array nums where the first element represents the cost of a subarray and the rest are elements of the array,
+// divide the array into subarrays such that the total cost is minimized. The cost of a subarray is defined as the sum of its first element and the K smallest elements in that subarray.
+
+// Approach: We can use a sliding window technique combined with a balanced data structure to efficiently maintain the K smallest elements in the current window.
+
+// Steps:
+// 1. Create a SmartWindow class that maintains two multisets: one for the K smallest elements and another for the rest.
+// 2. Implement methods to add and remove elements from the window while keeping it balanced.   
+// 3. Use the SmartWindow to slide over the array, updating the window and calculating the cost at each step.   
+// 4. Keep track of the minimum cost encountered during the sliding process.
+// 5. Return the minimum cost after processing the entire array.
+
+// Time Complexity: O(N log K), where N is the number of elements in the array, as each addition and removal operation in the multiset takes O(log K) time.
+// Space Complexity: O(K), as we are storing K elements in the SmartWindow.
+
 class Solution {
 public:
     struct SmartWindow{
