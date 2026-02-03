@@ -1,3 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Statement: A trionic array is defined as an array that first strictly increases, then strictly decreases, and finally strictly increases again.
+// Given an array of integers, determine if it is a trionic array.  
+
+// Approach: We can use a three-phase approach to validate the trionic property of the array.
+
+// Steps:
+// 1. Traverse the array from the start to find the first increasing sequence.
+// 2. Once the increasing sequence ends, check for a strictly decreasing sequence.
+// 3. After the decreasing sequence ends, check for a final strictly increasing sequence.
+// 4. Ensure that each phase has at least one element and that the entire array is covered by these three phases.
+// 5. If all conditions are met, return true; otherwise, return false.
+
+// Time Complexity: O(N), where N is the number of elements in the array, as we traverse the array at most once.
+// Space Complexity: O(1), as we use a constant amount of extra space.
+
 class Solution {
 public:
     bool isTrionic(vector<int>& nums) {
