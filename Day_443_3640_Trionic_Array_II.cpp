@@ -1,3 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem Statement: A trionic array is defined as an array that first strictly increases, then strictly decreases, and finally strictly increases again.
+// Given an array of integers, find the maximum sum of elements that can form a trionic subarray.
+
+// Approach: We can iterate through the array to identify potential trionic subarrays and calculate their sums. 
+// Steps:
+// 1. Iterate through the array to find segments that first increase, then decrease, and finally increase again.
+// 2. For each valid trionic segment, calculate the sum of its elements.
+// 3. Keep track of the maximum sum encountered during the iterations.
+// 4. Return the maximum sum found.
+
+// Time Complexity: O(N), where N is the number of elements in the array, as we traverse the array at most once.
+// Space Complexity: O(1), as we use a constant amount of extra space.
+
 class Solution {
 public:
     long long maxSumTrionic(vector<int>& nums) {
