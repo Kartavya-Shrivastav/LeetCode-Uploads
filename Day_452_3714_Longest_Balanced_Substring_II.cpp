@@ -1,3 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Problem: Given a string s consisting of lowercase English letters, return the length of the longest balanced substring of s. A substring is balanced if each character that appears in the substring appears the same number of times as every other character that appears in the substring. // Example 1: // Input: s = "aabb" // Output: 4 // Explanation: The whole string is balanced since 'a' and 'b' both appear twice. // Example 2: // Input: s = "abcde" // Output: 1 // Explanation: Every substring of length 1 is balanced since each character appears once. // Example 3: // Input: s = "aaabbb" // Output: 6 // Explanation: The whole string is balanced since 'a' and 'b' both appear three times. // Constraints: // 1 <= s.length <= 10^5 // s consists of lowercase English letters.
+// Approach: We can solve this problem by considering three cases: substrings that contain only one character, substrings that contain exactly two characters, and substrings that contain exactly three characters. For the first case, we can simply count the longest run of each character. For the second case, we can use a two-pointer approach to find the longest substring where the counts of the two characters are equal. For the third case, we can use a similar approach but with a more complex state to track the counts of all three characters. This approach has a time complexity of O(n) for each case, resulting in an overall time complexity of O(n).
+
+// Steps:   
+// 1. Implement a function to find the longest run of a single character in the string.
+// 2. Implement a function to find the longest balanced substring that contains exactly two characters using a two-pointer approach and a hash map to track the counts of the characters.
+// 3. Implement a function to find the longest balanced substring that contains exactly three characters using a similar approach but with a more complex state to track the counts of all three characters.
+// 4. Call these functions for all relevant character combinations and return the maximum length found.
+
+// Time Complexity: O(n) for each case, resulting in an overall time complexity of O(n).
+// Space Complexity: O(n) for the hash maps used in the two-character and three-character cases.
+
 class Solution {
 public:
     int longestBalanced(string s) {
