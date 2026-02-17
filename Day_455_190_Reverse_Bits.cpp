@@ -21,7 +21,7 @@ public:
         uint32_t res = 0;
         for (int i = 0; i < 32; i++) {
             res <<= 1;
-            res |= (n & 1);
+            res = res | (n & 1);            // taking the least significant bit of n using n & 1 and adding it to res using res | (n & 1)
             n >>= 1;
         }
         return res;
