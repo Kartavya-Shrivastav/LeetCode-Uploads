@@ -16,7 +16,7 @@ Steps:
 5. After the loop, return maxGap + 1 (since the gap counts the zeros between two 1's, we add 1 to get the distance).    
 
 Time Complexity: O(log n) since we are right shifting the number until it becomes zero, which takes log n steps.
-Space Complexity: O(1) since we are using only a constant amount of extra space.
+Space Complexity: O(1) since we are using only a constant amount of extra space. 
 
 */
 
