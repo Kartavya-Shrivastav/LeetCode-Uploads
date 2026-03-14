@@ -1,3 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+Problems: Find the number of stable binary arrays of length zero + one with exactly zero 0s and one 1s, where no more than limit consecutive elements are the same.
+Approach:   
+1. We can use dynamic programming to solve this problem. We will define a 3D DP array dp[i][j][k] where:
+   - i: number of 0s used
+   - j: number of 1s used
+   - k: the last element added (0 or 1)
+   The value of dp[i][j][k] will represent the number of ways to form a stable binary array using i 0s and j 1s, ending with the element k.
+2. We will initialize the base cases for dp when we have only 0s or only 1s, ensuring that we do not exceed the limit of consecutive elements.
+3. We will fill the DP table iteratively, ensuring that we do not add more than limit consecutive elements of the same type.
+4. Finally, the answer will be the sum of dp[zero][one][0] and dp[zero][one][1], which will give us the total number of stable binary arrays of the required length and composition.    
+
+// Time Complexity: O(zero * one) due to the nested loops filling the DP table.
+// Space Complexity: O(zero * one) for the DP table.
+*/
+
 class Solution {
 public:
     int numberOfStableArrays(int zero, int one, int limit) {
