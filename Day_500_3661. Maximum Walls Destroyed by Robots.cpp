@@ -1,3 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+Problem: We have a number of robots, each with a position and a distance they can move. There are also walls at certain positions. Each robot can choose to move either left or right, but it cannot move past the next robot in that direction. We need to find the maximum number of walls that can be destroyed by the robots.
+Approach: We can use dynamic programming to solve this problem. We will first sort the robots by their positions and calculate the intervals they can cover when moving left or right. Then, we will use a recursive function with memoization to explore all possible combinations of robot movements and count the number of walls destroyed for each combination.    
+
+Steps:
+1. Sort the robots by their positions and calculate the intervals they can cover when moving left or right, considering the next robot as a boundary.
+2. Create a helper function to count the number of walls that can be destroyed within a given interval using binary search.
+3. Use a recursive function with memoization to explore all possible combinations of robot movements (left or right) and count the number of walls destroyed for each combination.
+4. The base case of the recursion will be when we have processed all robots, at which point we return 0.
+5. For each robot, we will calculate the number of walls destroyed if it moves left and if it moves right, and then take the maximum of the two options.
+6. Store the results in a memoization table to avoid redundant calculations and improve efficiency.
+
+Time Complexity: O(n * log(m)) where n is the number of robots and m is the number of walls, due to sorting and binary search operations.
+Space Complexity: O(n) for the memoization table and O(n) for the intervals, resulting in O(n) overall.
+*/
+
+
 class Solution {
 public:
     int maxWalls(vector<int>& robots, vector<int>& distance, vector<int>& walls) {
