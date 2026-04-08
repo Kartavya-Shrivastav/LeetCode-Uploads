@@ -21,6 +21,7 @@ Time Complexity: O(n + m) where n is the number of commands and m is the number 
 Space Complexity: O(m) for storing the obstacles in a set.
 */
 
+
 class Solution {
 public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
