@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+Problem: We are given an array of integers and a list of queries. Each query consists of four integers (l, r, k, v) where l and r define a range in the array, k is a step size, and v is a value to multiply. For each query, we need to multiply every k-th element in the range [l, r] by v and then compute the XOR of all elements in the array after processing all queries.
+Approach: We can optimize the processing of queries by categorizing them based on the step size k. For large k, we can directly apply the multiplication to the relevant elements. For small k, we can use a difference array to efficiently apply the multiplications and their inverses, which allows us to handle multiple queries with the same k in a single pass.
+
+Steps:
+1. Iterate through each query and categorize them based on the step size k.
+2. For queries with large k, directly apply the multiplication to the relevant elements in the array.
+3. For queries with small k, use a difference array to apply the multiplications and their inverses efficiently.
+4. After processing all queries, compute the XOR of all elements in the array to get the final result.
+
+Time Complexity: O(n * sqrt(n) + q) where n is the size of the array and q is the number of queries. The large k queries are processed in O(q * (r - l) / k) which is efficient for large k, while small k queries are processed in O(n * sqrt(n)).
+Space Complexity: O(n) for the difference array used in processing small k queries, and O(1) for other variables.
+*/
+
 class Solution {
 public:
     const int mod = 1e9 + 7;
