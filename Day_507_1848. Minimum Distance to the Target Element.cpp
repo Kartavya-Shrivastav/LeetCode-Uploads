@@ -1,24 +1,11 @@
 class Solution {
-    public int getMinDistance(int[] nums, int target, int start) {
-        int min = Integer.MAX_VALUE;
-        
-        //Traverse from start → end
-        for(int i=start;i<nums.length;i++)
-        {
-            if(nums[i] == target)
-            {
-                min = Math.min(min, Math.abs(start - i));
-            }
+public:
+    int getMinDistance(vector<int>& nums, int target, int start) {
+        int result = nums.size();
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==target)
+                result = min(result,abs(i-start));
         }
-
-        //Traverse from start → beginning
-        for(int i=start;i>=0;i--)
-        {
-            if(nums[i] == target)
-            {
-                min = Math.min(min, Math.abs(start - i));
-            }
-        }
-        return min;
+        return result;
     }
-}
+};
