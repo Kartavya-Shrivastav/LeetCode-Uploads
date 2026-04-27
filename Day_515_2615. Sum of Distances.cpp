@@ -21,7 +21,6 @@ Steps:
 
 Time Complexity: O(n), where n is the length of the nums array. We iterate through the nums array once to populate the map and then iterate through each group of indices, which in total will also be O(n).    
 Space Complexity: O(n), where n is the length of the nums array. In the worst case, all numbers in nums could be the same, resulting in a single group of indices that contains all indices, which would require O(n) space to store in the map. Additionally, we use O(n) space for the ans vector to store the results.
-
 */
 
 class Solution {
