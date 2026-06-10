@@ -1,3 +1,36 @@
+/*
+Problem: Given two arrays of strings, wordsContainer and wordsQuery, for each query string return the index of the string in wordsContainer that shares the longest common suffix with it. If multiple strings have the same matching suffix length, return the index of the shortest string among them. If there is still a tie, return the smallest index.
+
+Approach: We use a Trie built on reversed strings to efficiently perform suffix matching. Each node in the Trie represents a suffix path and stores:
+- min_sz: the length of the shortest string passing through that node.
+- best_i: the index of that shortest string.
+
+By inserting each word in reverse order, suffix matching becomes equivalent to prefix matching in the Trie. During insertion, every visited node updates its best candidate (shortest string passing through that node). For each query, we traverse the Trie using the reversed query and keep updating the answer with the best candidate stored at the deepest matched node.
+
+Steps:
+1. Create a Trie where words are inserted in reverse order.
+2. For every Trie node, store:
+   - min_sz = shortest string length passing through the node.
+   - best_i = index of that shortest string.
+3. Insert each word from wordsContainer:
+   - Traverse characters from end to beginning.
+   - Create nodes when necessary.
+   - Update min_sz and best_i at every visited node.
+4. For each query string:
+   - Traverse the Trie from the last character to the first.
+   - Continue while matching nodes exist.
+   - Track the best_i stored at the deepest matched node.
+5. Return the collected indices for all queries.
+
+Time Complexity:
+- Building Trie: O(Σ|wordsContainer[i]|)
+- Query Processing: O(Σ|wordsQuery[i]|)
+- Total: O(total characters in input)
+
+Space Complexity:
+O(Σ|wordsContainer[i]|), where each character may create one Trie node in the worst case.
+*/
+
 struct TrieNode {
     TrieNode* next[26];
     //Shortest string length passing through this node
